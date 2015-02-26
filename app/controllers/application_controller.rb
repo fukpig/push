@@ -93,8 +93,6 @@ def send_registration_sms(cellphone, user_hash)
     end
 end
 
-
-
 def add_user_to_company(role_id, domain_id)
     UserToCompanyRole.create(user_id: current_user['id'], role_id: role_id, domain_id: domain_id)
 end

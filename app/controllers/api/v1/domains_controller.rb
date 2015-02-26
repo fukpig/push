@@ -58,7 +58,7 @@ class Api::V1::DomainsController < ApplicationController
     list = Array.new
     domains = DelegatedDomain.where(["to = ?", current_user.id])
     domains.each do |domain|
-      list << add_domain_to_list(domain) unless domain.accepted?
+      list << Domain.add_to_list(domain) unless domain.accepted?
     end
     show_response(list)
   end
@@ -87,15 +87,6 @@ class Api::V1::DomainsController < ApplicationController
     end
   end
 
-
-
-
-  def add_domain_to_list(domain)
-    info = Hash.new
-    domain = Domain.where(["id = ?", domain["domain_id"]]).first
-    inviter = User.where(["id = ?", domain["inviter_id"]]).first
-    info = { "id" => domain["id"], "domain_id" => domain["domain_id"], "domain"=> domain["domain"], "inviter_id" => domain["inviter_id"], "inviter_name" => domain["name"]}
-  end
 
   def check_available
     result = Domain.whois(@params['domain'])

@@ -27,7 +27,7 @@ class Api::V1::InviteController < ApplicationController
 	list = Array.new
 	invites = Invite.where(["cellphone = ?", current_user.cellphone])
 	invites.each do |invite|
-	  list << add_invite_to_list(invite) unless invite.accepted?
+	  list << Domain.add_to_list(invite) unless invite.accepted?
 	end
 	show_response(list)
   end
@@ -65,14 +65,5 @@ class Api::V1::InviteController < ApplicationController
       raise ApiError.new("Reject invite failed", "REJECT_INVITE_FAILED", invite.errors)
 	end
   end
-
-  def add_invite_to_list(invite)
-  	info = Hash.new
-	domain = Domain.where(["id = ?", invite["domain_id"]]).first
-	inviter = User.where(["id = ?", invite["inviter_id"]]).first
-	info = { "id" => invite["id"], "domain_id" => invite["domain_id"], "domain"=> domain["domain"], "inviter_id" => invite["inviter_id"], "inviter_name" => inviter["name"]}
-  end
-
-
 
 end

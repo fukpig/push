@@ -52,6 +52,14 @@ class Domain < ActiveRecord::Base
 	   {"domain_word" => info.first, "domain_zone" =>info.second}
 	end
 	
+	
+	def self.add_to_list(info)
+		info = Hash.new
+		domain = Domain.where(["id = ?", info["domain_id"]]).first
+		inviter = User.where(["id = ?", domain["inviter_id"]]).first
+		info = { "id" => domain["id"], "domain_id" => domain["domain_id"], "domain"=> domain["domain"], "inviter_id" => domain["inviter_id"], "inviter_name" => domain["name"]}
+	end
+	
 	def self.register(current_user, info)
 		result = Domain.whois(info["domain"])
 	
