@@ -24,12 +24,8 @@ class Api::V1::InviteController < ApplicationController
 
   def list
   	authorize! :show, @invites
-	list = Array.new
-	invites = Invite.where(["cellphone = ?", current_user.cellphone])
-	invites.each do |invite|
-	  list << Domain.add_to_list(invite) unless invite.accepted?
-	end
-	show_response(list)
+	list = Domain.get_invite_domains(current_user, 'invites')
+    show_response(list)
   end
 
   api :GET, "/v1/invite/accept", "Принять инвайт"

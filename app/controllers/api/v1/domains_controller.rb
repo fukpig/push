@@ -55,11 +55,7 @@ class Api::V1::DomainsController < ApplicationController
 
   def delegated_domain_to_me
     authorize! :show, @invites
-    list = Array.new
-    domains = DelegatedDomain.where(["to = ?", current_user.id])
-    domains.each do |domain|
-      list << Domain.add_to_list(domain) unless domain.accepted?
-    end
+    list = Domain.get_invite_domains(current_user, 'domains')
     show_response(list)
   end
 

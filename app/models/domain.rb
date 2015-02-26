@@ -53,6 +53,18 @@ class Domain < ActiveRecord::Base
 	end
 	
 	
+	def self.get_invite_domains(current_user, model)
+	    list = Array.new
+		if model == 'domains'
+		  rows = DelegatedDomain.where(["to = ?", current_user.id])
+		else 
+		  rows = Invite.where(["cellphone = ?", current_user.cellphone])
+		end
+		rows.each do |row|
+		  list << Domain.add_to_list(domain) unless row.accepted?
+		end
+	end
+	
 	def self.add_to_list(info)
 		info = Hash.new
 		domain = Domain.where(["id = ?", info["domain_id"]]).first
