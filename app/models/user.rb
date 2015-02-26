@@ -26,6 +26,18 @@ class User < ActiveRecord::Base
 
   attr_accessor :locked_credit
 
+  
+  def self.get_belongs(roles)
+    data = Array.new
+	roles.each do |role|
+      domain = Domain.where('id = ?', role.domain_id).first
+      if domain
+        email =  EmailAccount.where('user_id =? and domain_id = ?', current_user["id"], domain.id).first
+        data << {"email_id" => email["id"], "email_name" => email["email"], "domain_id" => domain["id"], "domain_name" => domain["domain"]}
+      end
+    end
+  end
+  
   def send_sms(hash)
   	self.update_attribute(:confirmation_hash, Digest::SHA1.hexdigest(hash))
     require '/home/api-ps/smsc_api'
