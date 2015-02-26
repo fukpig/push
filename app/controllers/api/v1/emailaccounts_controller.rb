@@ -2,12 +2,6 @@ class Api::V1::EmailaccountsController < ApplicationController
   include EmailHelper
   require 'yandex'
 
-  api :GET, "/v1/email/info", "Проверить доступность ящика"
-  param :token, String, :desc => "Пользовательский токен", :required => true
-  param :domain_id, String, :desc => "Id домена", :required => true
-  param :email_id, String, :desc => "Id ящика", :required => true
-  error :code => 301, :desc => "Invalid token", :meta => {:описание => "Неправильный токен или токен не был передан"}
-
   def info
     authorize! :show, @email
 	domain = current_user.domains.where(["id = ?", @params['domain_id']]).first
@@ -19,16 +13,6 @@ class Api::V1::EmailaccountsController < ApplicationController
       raise ApiError.new("find email failed", "SHOW_EMAIL_FAILED", "no such email")
     end
   end
-  
-
-  api :GET, "/v1/email/create", "Создать ящик"
-  param :token, String, :desc => "Пользовательский токен", :required => true
-  param :mail, String, :desc => "Наименование ящика", :required => true
-  param :interval, String, :desc => "Количество месяцев, на которые нужно пополнить баланс. По-умолчанию 1 месяц.", :required => false
-  param :invite_cellphone, String, :desc => "Телефон на который уйдет инвайт", :required => true
-  param :name, String, :desc => "Имя пользователя, к которому привяжется ящик", :required => true
-
-  error :code => 301, :desc => "Invalid token", :meta => {:описание => "Неправильный токен или токен не был передан"}
 
   def create
     authorize! :create, @email
@@ -61,11 +45,6 @@ class Api::V1::EmailaccountsController < ApplicationController
     end
   end
 
-  api :GET, "/v1/email/delete", "Удалить ящик"
-  param :token, String, :desc => "Пользовательский токен", :required => true
-  param :email, String, :desc => "Ящик", :required => true
-  error :code => 301, :desc => "Invalid token", :meta => {:описание => "Неправильный токен или токен не был передан"}
-
   def delete
     authorize! :destroy, @email
     email = EmailAccount.where(["email = ?", @params['email']]).first
@@ -84,13 +63,6 @@ class Api::V1::EmailaccountsController < ApplicationController
     end
 
   end
-
-  api :GET, "/v1/email/check", "Проверить и сгенерировать ящик"
-  param :token, String, :desc => "Пользовательский токен", :required => true
-  param :firstname, String, :desc => "Имя юзера", :required => true
-  param :cellphone, String, :desc => "Телефон юзера", :required => true
-  param :email, String, :desc => "Ящик", :required => true
-  error :code => 301, :desc => "Invalid token", :meta => {:описание => "Неправильный токен или токен не был передан"}
 
   def check
     authorize! :update, @email
@@ -146,11 +118,7 @@ class Api::V1::EmailaccountsController < ApplicationController
       raise ApiError.new("change password failed", "CHANGE_PASSWORD_FAILED", email.errors)
     end
   end
-
-  api :GET, "/v1/email/get_email_price", "Получить стоимость ящика до конца месяца"
-  param :token, String, :desc => "Пользовательский токен", :required => true
-  error :code => 301, :desc => "Invalid token", :meta => {:описание => "Неправильный токен или токен не был передан"}
-
+  
   def get_email_price()
     authorize! :update, @email
     show_response({'per_day' => EmailAccount.amount_per_day, 'full_month' => 5})
