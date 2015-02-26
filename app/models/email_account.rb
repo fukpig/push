@@ -59,6 +59,8 @@ class EmailAccount < ActiveRecord::Base
     def self.split_email(email)
         array = email.split("@")
 		raise ApiError.new("Check email failed", "CHECK_EMAIL_FAILED", "Email not valid") if array.count < 2
+		raise ApiError.new("Check email failed", "CHECK_EMAIL_FAILED", "Email empty") if array[0].empty?
+		
         if array[0].match('[a-zA-Z0-9\.\-\s]+')
           return {"email_name" => array[0], "domain" => array[1], "zone" => array[1].split(".")[1]}
         else

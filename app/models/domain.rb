@@ -15,30 +15,90 @@ class Domain < ActiveRecord::Base
 		end
 	end
 	
+	def self.get_price(domain)
+	  info = parse_domain(domain)
+      zone = PsConfigZones.get_zone(info["domain_zone"])
+	  result = Domain.whois(domain)  
+      if result.available? == true
+        show_response({"domain_price" => zone.ps_price, "email_price" => EmailAccount.amount_per_day})
+      end
+	end
 	
-	def self.register(user_id, info)
-		Domain.transaction do
-			domain = Domain.create(user_id: user_id, domain: info["domain"], registration_date: DateTime.now, expiry_date: 1.year.from_now, status: 'ok')
-			if !domain.new_record?			
-			  #Yandex
-
-			  #data = {:domain => info["domain"]}
-			  #pdd = init_pdd
+	def self.get_variants(domain)
+		info = parse_domain(domain)
+		reg_ru = RegApi2.domain.get_suggest(word: info["domain_word"],
+        use_hyphen: "1",
+		  category: "pattern",
+		  limit: "5",
+		  tlds: ["su", "ru", "com"],
+		)
+		variants = Array.new
+		i = 0
+		reg_ru.each do |variant|
+		  break if i == 4
+		  variant["avail_in"].each do |zone|
+			i += 1
+			break if i == 4
+			variants << variant["name"] + "." + zone
+		  end
 		  
-			  #reg_domain_reg_ru(data)
-			  
-			  #result = pdd.domain_register(data[:domain])
-			  #data[:cname] = 'yamail-'+ result["secrets"]["name"]
-			  #set_records(data)
-
-			  #cron = YandexCron.create(domain: info["domain"], email: info["email_name"])
-			
-			  #Yandex
-			  return domain
-			else
-			  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", domain.errors)
-			end
 		end
+		return variants
+	end
+	
+	
+	def self.parse_domain(domain)
+	   info = domain.split(".")
+	   {"domain_word" => info.first, "domain_zone" =>info.second}
+	end
+	
+	def self.register(current_user, info)
+		result = Domain.whois(info["domain"])
+	
+		if result.available?
+			zone = PsConfigZones.get_zone(info["zone"])
+		
+			current_user.check_balance(zone.ps_price + EmailAccount.amount_per_day)
+			Domain.transaction do
+				domain = Domain.create(user_id: current_user.id, domain: info["domain"], registration_date: DateTime.now, expiry_date: 1.year.from_now, status: 'ok')
+				if !domain.new_record?			
+				  #Yandex
+
+				  #data = {:domain => info["domain"]}
+				  #pdd = init_pdd
+			  
+				  #reg_domain_reg_ru(data)
+				  
+				  #result = pdd.domain_register(data[:domain])
+				  #data[:cname] = 'yamail-'+ result["secrets"]["name"]
+				  #set_records(data)
+
+				  #cron = YandexCron.create(domain: info["domain"], email: info["email_name"])
+				
+				  #Yandex
+				  return domain
+				else
+				  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", domain.errors)
+				end
+		end
+		current_user.pay_domain(domain.id)
+		
+		EmailAccount.create_email(current_user, domain.id, info["email_name"], 'admin', '')
+		interval = 1
+		current_user.pay_email(domain.id, interval)
+		
+		current_user.create_subscriptions(domain.id)
+		
+		#SET ADMIN TO DOMAIN
+		current_user.add_user_to_company(1, domain.id)
+   	    return domain
+	else 
+		raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'Domain is not available')
+	end
+	
+	
+	
+		
     end
 	
 	def get_next_billing_date(domain)

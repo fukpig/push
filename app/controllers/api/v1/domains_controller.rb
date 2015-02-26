@@ -38,37 +38,14 @@ class Api::V1::DomainsController < ApplicationController
   def create
     authorize! :create, @domain
     info = EmailAccount.split_email(@params['domain'])
-	result = Domain.whois(info["domain"])
-
-    current_user.set_recovery_cellphone(@params['celllphone'])
-    
-    if info["email_name"].empty?
-	  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", "Invalid email")
+	current_user.set_recovery_cellphone(@params['celllphone'])
+	domain = Domain.register(current_user, info)
+	if !domain.nil?
+	  show_response(domain.as_json(only: [:id, :domain, :registration_date, :expiry_date, :status, :ns_list]))
+	else 
+	  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'errors')
 	end
 	
-	if result.available?
-	    zone = PsConfigZones.where("name = ?", info["zone"]).first
-		
-		if zone.nil?
-		   raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'Not such zone')
-		end
-		
-	    current_user.check_balance(zone.ps_price + EmailAccount.amount_per_day)
-		domain = Domain.register(current_user.id, info)
-		current_user.pay_domain(domain.id)
-		
-		email = EmailAccount.create_email(current_user, domain.id, info["email_name"], 'admin', '')
-		interval = 1
-		current_user.pay_email(domain.id, interval)
-		
-		current_user.create_subscriptions(domain.id)
-		
-		#SET ADMIN TO DOMAIN
-		current_user.add_user_to_company(1, domain.id)
-   	    show_response(domain.as_json(only: [:id, :domain, :registration_date, :expiry_date, :status, :ns_list]))
-	else 
-		raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'Domain is not available')
-	end
   end
 
   api :GET, "/v1/domain/delete", "Удалить домен(пока локально)"
@@ -154,19 +131,15 @@ class Api::V1::DomainsController < ApplicationController
   error :code => 301, :desc => "CHECK_DOMAIN_FAILED", :meta => {:описание => "Неправильный домен"}
   
   def check_available
-  	if !@params['domain'].nil?
-        result = Domain.whois(@params['domain'])
-  		if result.available? == false
-  			domain_word = @params['domain'].split('.').first
-  			reg_ru = RegApi2.domain.get_suggest(word: domain_word,
-  				use_hyphen: "1"
-  			)
-  			show_response({"available"=>result.available?, "choice" => reg_ru})
-  		else 
-  			show_response({"available"=>result.available?})
-  		end
-  	else
-       raise ApiError.new("Check domain failed", "CHECK_DOMAIN_FAILED", "invalid domain")
+    result = Domain.whois(@params['domain'])
+  	if result.available? == false
+  		info = Domain.parse_domain(@params['domain'])
+  		reg_ru = RegApi2.domain.get_suggest(word: info['domain_word'],
+  			use_hyphen: "1"
+  		)
+  		show_response({"available"=>result.available?, "choice" => reg_ru})
+  	else 
+  		show_response({"available"=>result.available?})
   	end
   end
 
@@ -180,77 +153,46 @@ class Api::V1::DomainsController < ApplicationController
     authorize! :show, @info
 
     domain = SimpleIDN.to_ascii(@params['domain'])
-    info = @params['domain'].split(".")
-    domain_word = info.first
-    domain_zone =  info.second
-
-
-    zone = PsConfigZones.where("name = ?", domain_zone).first
-    check_domain_valid(zone, domain, domain_word)
-    
-    result = Domain.whois(domain)
-    
-    if result.available? == true
-        zone = PsConfigZones.where("name = ?", domain_zone).first
-        show_response({"domain_price" => zone.ps_price, "email_price" => EmailAccount.amount_per_day})
-    else 
-        raise ApiError.new("domain is not available", "CHECK_DOMAIN_FAILED", {"message" => get_domains_variants(domain_word)})
-    end
+	price = Domain.get_price(domain)
+    if !price["domain_price"].nil?
+	 show_response(price)
+	else 
+	  raise ApiError.new("domain is not available", "CHECK_DOMAIN_FAILED", {"message" => Domain.get_variants(domain)})
+	end
   end
 
 
-  def test_async
-    response.headers['Content-Type'] = 'text/event-stream'
-    word = @params['word']
-    zones = PsConfigZones.all
-    zones.each do |zone|
-      begin
-        domain = word + "." + zone.name
-        result = Whois.whois(domain)
-        if !result.nil? and result.available? == true
-          status = 'AVAILABLE'
-        else 
-          status = 'NOT AVAILABLE'
-        end
-        response.stream.write zone.name + " ==>"+ status +"\n"
-      rescue => e
-        puts "Error #{e}"
-        next   # <= This is what you were looking for
-      end
-    end
-    response.stream.close
-  end
+  #def test_async
+    #response.headers['Content-Type'] = 'text/event-stream'
+    #word = @params['word']
+    #zones = PsConfigZones.all
+    #zones.each do |zone|
+      #begin
+        #domain = word + "." + zone.name
+        #result = Whois.whois(domain)
+        #if !result.nil? and result.available? == true
+        #  status = 'AVAILABLE'
+        #else 
+        #  status = 'NOT AVAILABLE'
+        #end
+        #response.stream.write zone.name + " ==>"+ status +"\n"
+      #rescue => e
+        #puts "Error #{e}"
+        #next   # <= This is what you were looking for
+      #end
+    #end
+    #response.stream.close
+  #end
 
   private 
 
-  def check_domain_valid(domain_zone, domain, domain_word)
-    if domain_zone.nil? && !domain_zone && !domain.match("^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$")
-        raise ApiError.new("domain is not available", "CHECK_DOMAIN_FAILED", {"message" => get_domains_variants(domain_word)})
-    end
-  end
+  #def check_domain_valid(domain_zone, domain, domain_word)
+    #if domain_zone.nil? && !domain_zone && !domain.match("^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$")
+        #raise ApiError.new("domain is not available", "CHECK_DOMAIN_FAILED", {"message" => get_domains_variants(domain_word)})
+    #end
+  #end
 
   def check_owner(domain_id)
      raise ApiError.new("no such domain", "NO_SUCH_DOMAIN", "no such domain") unless current_user.domains.where(["id = ?", @domain_id]).present?
-  end
-
-  def get_domains_variants(word)
-    reg_ru = RegApi2.domain.get_suggest(word: word,
-      use_hyphen: "1",
-      category: "pattern",
-      limit: "5",
-      tlds: ["su", "ru", "com"],
-    )
-    variants = Array.new
-    i = 0
-    reg_ru.each do |variant|
-      break if i == 4
-      variant["avail_in"].each do |zone|
-        i += 1
-        break if i == 4
-        variants << variant["name"] + "." + zone
-      end
-      
-    end
-    return variants
   end
 end
