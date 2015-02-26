@@ -1,0 +1,7062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+  #content div#graph {
+    width: 100%;
+    height: 600px; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+
+    .bluff-tooltip {
+  background: #fff;
+  border: 1px solid #d1edf5;
+  padding: 8px 8px 6px;
+}
+.bluff-tooltip .color {
+  display: block;
+  height: 4px;
+  width: 30px;
+  margin: 0 0 4px;
+  overflow: hidden;
+}
+.bluff-tooltip .data {
+  font-weight: bold;
+}
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="utils.js" type="text/javascript"></script>
+    <script language="javascript" src="js-class.js" type="text/javascript"></script>
+    <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
+    <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+    <script language="javascript" src="standalone-framework.js" type="text/javascript"></script>
+    <script language="javascript" src="highcharts.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">push</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='https://github.com/metricfu/metric_fu'>MetricFu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Cane Results</h3>
+
+<p><a href='https://github.com/square/cane'>Cane</a> reports code quality threshold violations.</p>
+
+<div id="graph_container"></div>
+<script language="javascript" src="cane.js?1424959414" type="text/javascript"></script>
+
+
+<h3>Methods exceeding allowed Abc complexity (5)</h3>
+<table>
+  <tr>
+    <th>File</th>
+    <th>Method</th>
+    <th>Complexity</th>
+  </tr>
+  
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb</td>
+      <td>DomainsController#create</td>
+      <td>30</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb</td>
+      <td>GroupsController#remove</td>
+      <td>19</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb</td>
+      <td>GroupsController#add</td>
+      <td>19</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb</td>
+      <td>DomainsController#get_register_price</td>
+      <td>18</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb</td>
+      <td>EmailaccountsController#create</td>
+      <td>17</td>
+    </tr>
+    
+  
+</table>
+
+
+<h3>Lines violating style requirements (1055)</h3>
+<table>
+  <tr>
+    <th>File</th>
+    <th>Description</th>
+  </tr>
+  
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:7</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:8</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:8</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:12</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:13</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:14</td>
+      <td>Line is >80 characters (213)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:14</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:15</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:17</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:17</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:18</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:19</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:21</td>
+      <td>Line is >80 characters (144)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:22</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:22</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:23</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:25</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:27</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:27</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:29</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:29</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:31</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:34</td>
+      <td>Line is >80 characters (81)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:35</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:36</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:39</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:39</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:40</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:43</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:45</td>
+      <td>Line is >80 characters (106)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:47</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:47</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:52</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:52</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:53</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:54</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:56</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:57</td>
+      <td>Line is >80 characters (88)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:57</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:57</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:58</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:59</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:60</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:60</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:62</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:62</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:63</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:64</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/domain.rb:64</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:2</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:4</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:5</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:5</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:6</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:8</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:14</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:16</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:19</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:20</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:22</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:23</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:24</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:25</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:29</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:31</td>
+      <td>Line is >80 characters (90)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/group.rb:33</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:6</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:8</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:10</td>
+      <td>Line is >80 characters (105)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:12</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:14</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:15</td>
+      <td>Line is >80 characters (116)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:15</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:16</td>
+      <td>Line is >80 characters (105)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:20</td>
+      <td>Line is >80 characters (121)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:24</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:25</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:27</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:27</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:31</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:33</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:35</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:36</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:38</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:39</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:40</td>
+      <td>Line is >80 characters (100)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:40</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:44</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:47</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:47</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:49</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/delegated_domain.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:12</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:19</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:21</td>
+      <td>Line is >80 characters (169)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:23</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:28</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:29</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:31</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:31</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:33</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:36</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:37</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:39</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:40</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:40</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:41</td>
+      <td>Line is >80 characters (133)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:44</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:47</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:49</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:56</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:61</td>
+      <td>Line is >80 characters (102)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:63</td>
+      <td>Line is >80 characters (99)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:65</td>
+      <td>Line is >80 characters (91)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:66</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:68</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:68</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:69</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:70</td>
+      <td>Line is >80 characters (82)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:70</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/email_account.rb:71</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:2</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:14</td>
+      <td>Line is >80 characters (184)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:20</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:21</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:24</td>
+      <td>Line is >80 characters (111)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:33</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:33</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:36</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:40</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:43</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:44</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:45</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:48</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:50</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:53</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:55</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:56</td>
+      <td>Line is >80 characters (103)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:57</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:59</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:61</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:62</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:62</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:63</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:63</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:64</td>
+      <td>Line is >80 characters (119)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:64</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:65</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:66</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:66</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:67</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:68</td>
+      <td>Line is >80 characters (131)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:68</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:68</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:69</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:70</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:71</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:72</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:73</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:74</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:75</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:76</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:77</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:78</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:107</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:121</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:126</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:129</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:134</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:136</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:148</td>
+      <td>Line is >80 characters (94)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:155</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:158</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:159</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:162</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:166</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:167</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:168</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:172</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:175</td>
+      <td>Line is >80 characters (111)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:175</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:179</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:184</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:185</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:186</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:191</td>
+      <td>Line is >80 characters (118)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/user.rb:192</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:3</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:3</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:12</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:13</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:14</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:15</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:16</td>
+      <td>Line is >80 characters (158)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:17</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:19</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:19</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:22</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:24</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:25</td>
+      <td>Line is >80 characters (118)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:25</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:26</td>
+      <td>Line is >80 characters (107)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:30</td>
+      <td>Line is >80 characters (123)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:36</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:37</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:41</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:45</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/invite.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:47</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:3</td>
+      <td>Line is >80 characters (95)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:6</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:8</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:9</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:10</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:16</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:21</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:22</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:27</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:30</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:37</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:44</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:48</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:48</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:51</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:54</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:60</td>
+      <td>Line is >80 characters (94)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:60</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:70</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:74</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:83</td>
+      <td>Line is >80 characters (129)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:89</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:91</td>
+      <td>Line is >80 characters (136)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/invoice.rb:98</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:99</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:5</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:7</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:8</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:11</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:13</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:14</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:17</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:19</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:20</td>
+      <td>Line is >80 characters (203)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:21</td>
+      <td>Line is >80 characters (156)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:23</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:25</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:29</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:33</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:37</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:40</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:49</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:50</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:51</td>
+      <td>Line is >80 characters (131)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:51</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:52</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:57</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:62</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:67</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:71</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:72</td>
+      <td>Line is >80 characters (121)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:74</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:75</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:76</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:77</td>
+      <td>Line is >80 characters (91)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:79</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:84</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:85</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:90</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:99</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/subscription.rb:100</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/transaction.rb:3</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/transaction.rb:4</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/transaction.rb:9</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/transaction.rb:19</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/transaction.rb:21</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/token_controller.rb:24</td>
+      <td>Line is >80 characters (135)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/token_controller.rb:24</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/token_controller.rb:28</td>
+      <td>Line is >80 characters (135)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/token_controller.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/token_controller.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/token_controller.rb:43</td>
+      <td>Line is >80 characters (120)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/token_controller.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:7</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:8</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:17</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:18</td>
+      <td>Line is >80 characters (94)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:19</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:22</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:24</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:26</td>
+      <td>Line is >80 characters (95)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:29</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:35</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:36</td>
+      <td>Line is >80 characters (107)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:37</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:44</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:46</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:47</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:48</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:51</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:52</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:53</td>
+      <td>Line is >80 characters (87)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:53</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:54</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:55</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:56</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:57</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:58</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:59</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:59</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:60</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:60</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:62</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:63</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:63</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:64</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:65</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:65</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:66</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:67</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:68</td>
+      <td>Line is >80 characters (112)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:68</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:69</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:69</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:70</td>
+      <td>Line is >80 characters (94)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:70</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:71</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:77</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:78</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:79</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:83</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:87</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:89</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:97</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:98</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:115</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:116</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:117</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:120</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:122</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:123</td>
+      <td>Line is >80 characters (91)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:126</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:130</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:136</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:137</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:148</td>
+      <td>Line is >80 characters (171)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:152</td>
+      <td>Line is >80 characters (148)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:154</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:155</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:157</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:159</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:160</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:161</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:162</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:163</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:164</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:165</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:165</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:166</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:167</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:168</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:169</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:170</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:174</td>
+      <td>Line is >80 characters (151)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:177</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:178</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:190</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:192</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:195</td>
+      <td>Line is >80 characters (102)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:196</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:197</td>
+      <td>Line is >80 characters (126)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:212</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:224</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:227</td>
+      <td>Line is >80 characters (104)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:228</td>
+      <td>Line is >80 characters (126)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:233</td>
+      <td>Line is >80 characters (144)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/domains_controller.rb:252</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:9</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:13</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:14</td>
+      <td>Line is >80 characters (99)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:19</td>
+      <td>Line is >80 characters (83)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:22</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:27</td>
+      <td>Line is >80 characters (134)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:28</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:29</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:31</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:39</td>
+      <td>Line is >80 characters (112)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:48</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:49</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:50</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:51</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:52</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:54</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:54</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:67</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:72</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:73</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:74</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:83</td>
+      <td>Line is >80 characters (81)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:93</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:102</td>
+      <td>Line is >80 characters (138)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:104</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:111</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:112</td>
+      <td>Line is >80 characters (106)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:113</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:114</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:116</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:121</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:122</td>
+      <td>Line is >80 characters (99)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:126</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:131</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:132</td>
+      <td>Line is >80 characters (99)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:136</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:141</td>
+      <td>Line is >80 characters (84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:142</td>
+      <td>Line is >80 characters (105)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:146</td>
+      <td>Line is >80 characters (90)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:150</td>
+      <td>Line is >80 characters (83)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:152</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:6</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:14</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:16</td>
+      <td>Line is >80 characters (131)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:24</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:27</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:30</td>
+      <td>Line is >80 characters (123)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:43</td>
+      <td>Line is >80 characters (125)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:46</td>
+      <td>Line is >80 characters (139)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:57</td>
+      <td>Line is >80 characters (126)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:57</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/companies_controller.rb:60</td>
+      <td>Line is >80 characters (140)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:60</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:2</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:6</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:7</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:13</td>
+      <td>Line is >80 characters (178)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:14</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:21</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:22</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:27</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:29</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:31</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:38</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:42</td>
+      <td>Line is >80 characters (104)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:43</td>
+      <td>Line is >80 characters (100)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:44</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:47</td>
+      <td>Line is >80 characters (86)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:49</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:50</td>
+      <td>Line is >80 characters (87)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:53</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:57</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:59</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:60</td>
+      <td>Line is >80 characters (104)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:60</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:61</td>
+      <td>Line is >80 characters (100)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:62</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:63</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:64</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:64</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:65</td>
+      <td>Line is >80 characters (87)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:66</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:70</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:71</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:72</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/invite_controller.rb:73</td>
+      <td>Line is >80 characters (169)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:73</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:5</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:14</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:15</td>
+      <td>Line is >80 characters (104)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:24</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:32</td>
+      <td>Line is >80 characters (107)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:41</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:46</td>
+      <td>Line is >80 characters (99)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:47</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:48</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:49</td>
+      <td>Line is >80 characters (200)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:51</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:59</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:65</td>
+      <td>Line is >80 characters (110)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:69</td>
+      <td>Line is >80 characters (87)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:77</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:84</td>
+      <td>Line is >80 characters (90)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:84</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:85</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:86</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:87</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:91</td>
+      <td>Line is >80 characters (81)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:98</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:99</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:105</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:106</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:107</td>
+      <td>Line is >80 characters (120)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:107</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:108</td>
+      <td>Line is >80 characters (137)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:109</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:110</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:114</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:122</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:123</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:129</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:130</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:130</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:131</td>
+      <td>Line is >80 characters (120)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:131</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:132</td>
+      <td>Line is >80 characters (137)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/groups_controller.rb:133</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:2</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:5</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:8</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:9</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:13</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:16</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:17</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:18</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:22</td>
+      <td>Line is >80 characters (118)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:23</td>
+      <td>Line is >80 characters (114)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:24</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:25</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:33</td>
+      <td>Line is >80 characters (133)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:37</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:38</td>
+      <td>Line is >80 characters (114)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:39</td>
+      <td>Line is >80 characters (215)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:39</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:40</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:41</td>
+      <td>Line is >80 characters (242)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:50</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:55</td>
+      <td>Line is >80 characters (104)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:56</td>
+      <td>Line is >80 characters (139)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:65</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:66</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:69</td>
+      <td>Line is >80 characters (107)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:76</td>
+      <td>Line is >80 characters (114)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:77</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:81</td>
+      <td>Line is >80 characters (88)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:82</td>
+      <td>Line is >80 characters (129)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:85</td>
+      <td>Line is >80 characters (117)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:85</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:92</td>
+      <td>Line is >80 characters (114)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:93</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:94</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:99</td>
+      <td>Line is >80 characters (202)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:101</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:102</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:102</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:103</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:104</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:110</td>
+      <td>Line is >80 characters (143)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:111</td>
+      <td>Line is >80 characters (102)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:112</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:116</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:118</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:119</td>
+      <td>Line is >80 characters (119)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:126</td>
+      <td>Line is >80 characters (94)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:127</td>
+      <td>Line is >80 characters (143)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:128</td>
+      <td>Line is >80 characters (102)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:129</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:132</td>
+      <td>Line is >80 characters (113)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:132</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:133</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:134</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:135</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:141</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:142</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:146</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:149</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:152</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:154</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:156</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:157</td>
+      <td>Line is >80 characters (132)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:158</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:162</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:163</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:164</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:165</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:165</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:166</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:167</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:168</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:170</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:178</td>
+      <td>Line is >80 characters (83)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:184</td>
+      <td>Line is >80 characters (109)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:185</td>
+      <td>Line is >80 characters (132)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:186</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:206</td>
+      <td>Line is >80 characters (148)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:214</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:224</td>
+      <td>Line is >80 characters (122)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:234</td>
+      <td>Line is >80 characters (121)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:240</td>
+      <td>Line is >80 characters (89)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:246</td>
+      <td>Line is >80 characters (95)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:249</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/users_controller.rb:252</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:259</td>
+      <td>Line is >80 characters (88)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:2</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:24</td>
+      <td>Line is >80 characters (100)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:32</td>
+      <td>Line is >80 characters (82)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:59</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:67</td>
+      <td>Line is >80 characters (111)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:72</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:76</td>
+      <td>Line is >80 characters (86)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:88</td>
+      <td>Line is >80 characters (119)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:88</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:92</td>
+      <td>Line is >80 characters (81)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:99</td>
+      <td>Line is >80 characters (97)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/application_controller.rb:110</td>
+      <td>Line is >80 characters (87)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:117</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:13</td>
+      <td>Line is >80 characters (115)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:18</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:21</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:27</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:31</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:33</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:60</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:70</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:86</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:98</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:102</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:109</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:112</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:125</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:129</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:136</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:139</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:149</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:156</td>
+      <td>Line is >80 characters (124)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:159</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:164</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:164</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:165</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:167</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:168</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:177</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:182</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:187</td>
+      <td>Line is >80 characters (85)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:187</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:188</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:190</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:195</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:200</td>
+      <td>Line is >80 characters (91)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:200</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:201</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:202</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:203</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:204</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:205</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:206</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:212</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:217</td>
+      <td>Line is >80 characters (91)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:217</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:218</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:219</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:223</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:228</td>
+      <td>Line is >80 characters (86)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:228</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:229</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:231</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:232</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:234</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:235</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:236</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:238</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:244</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:249</td>
+      <td>Line is >80 characters (86)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:249</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:250</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:252</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:256</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:261</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:261</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:262</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:264</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:265</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:266</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:272</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:278</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:283</td>
+      <td>Line is >80 characters (93)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:283</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:284</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:286</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:288</td>
+      <td>Line is >80 characters (86)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:291</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:296</td>
+      <td>Line is >80 characters (82)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:313</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:318</td>
+      <td>Line is >80 characters (82)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google.rb:336</td>
+      <td>Line is >80 characters (96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:5</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:12</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:15</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:17</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:19</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:22</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:22</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:23</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:24</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:26</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:27</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:28</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:29</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:30</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:31</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:32</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:33</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:33</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:34</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:35</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:37</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:38</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:39</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:40</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:41</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:42</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:43</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:44</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:44</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:45</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:46</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:48</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:49</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:50</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:51</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:52</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:53</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:54</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:55</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:55</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:56</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:57</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:59</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:60</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:61</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:62</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:63</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:64</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:65</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:66</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:66</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:67</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:68</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:71</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:72</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:73</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:74</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:75</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:76</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:77</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:78</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:78</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:79</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:80</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:82</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:83</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:84</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:85</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:86</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:87</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:88</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:89</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:89</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:90</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:91</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:93</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:94</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:95</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:96</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:97</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:97</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:98</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:99</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:100</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:100</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:101</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:102</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:104</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:105</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:106</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:107</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:108</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:109</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:110</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:111</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:111</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:112</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:113</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:116</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:117</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:118</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:119</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:120</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:121</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:122</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:123</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:123</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:124</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:125</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:127</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:128</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:129</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:130</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:131</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:132</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:133</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:134</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:134</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:135</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:136</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:138</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:139</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:140</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:141</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:142</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:143</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:144</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:145</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:145</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:146</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:147</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:149</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:150</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:151</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:152</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:153</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:153</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:154</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:155</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:156</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:156</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:157</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:158</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:160</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:161</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:162</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:163</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:164</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:165</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:166</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:167</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:167</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:168</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:169</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:171</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:172</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:173</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:174</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:175</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:175</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:176</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:177</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:178</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:178</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:179</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:180</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:182</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:183</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:184</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:185</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:186</td>
+      <td>Line is >80 characters (92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:186</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:187</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:188</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:189</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:189</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:190</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:191</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:193</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:194</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:195</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:196</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:197</td>
+      <td>Line is >80 characters (135)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:197</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:198</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:199</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:200</td>
+      <td>Line is >80 characters (98)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:200</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:201</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:202</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:206</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:207</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:207</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:208</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:209</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:210</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:211</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:212</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:213</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:213</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:214</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:215</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:216</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:217</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:218</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:219</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:220</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex.rb:221</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google_cron.rb:6</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google_cron.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google_cron.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google_cron.rb:11</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/google_cron.rb:12</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google_cron.rb:12</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/api_exception.rb:3</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/api_exception.rb:4</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/api_exception.rb:5</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:5</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:6</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:7</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:9</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:10</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:11</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:13</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:16</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:18</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:20</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/yandex_cron.rb:21</td>
+      <td>Line contains trailing whitespace</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex_cron.rb:21</td>
+      <td>Line contains hard tabs</td>
+    </tr>
+    
+  
+</table>
+
+
+
+<h3>Class definitions requiring comments (22)</h3>
+<table>
+  <tr>
+    <th>File</th>
+    <th>Class</th>
+  </tr>
+  
+  
+    <tr class='light'>
+      <td>app/models/domain.rb:1</td>
+      <td>Domain</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/group.rb:1</td>
+      <td>Group</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/delegated_domain.rb:1</td>
+      <td>DelegatedDomain</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/email_account.rb:1</td>
+      <td>EmailAccount</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/api_key.rb:1</td>
+      <td>ApiKey</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/ability.rb:1</td>
+      <td>Ability</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/user.rb:1</td>
+      <td>User</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/invite.rb:1</td>
+      <td>Invite</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/models/billing/invoice.rb:1</td>
+      <td>Billing::Invoice</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/models/billing/subscription.rb:1</td>
+      <td>Billing::Subscription</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api_keys_controller.rb:1</td>
+      <td>ApiKeysController</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/token_controller.rb:1</td>
+      <td>Api::V1::TokenController</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/domains_controller.rb:1</td>
+      <td>Api::V1::DomainsController</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/emailaccounts_controller.rb:1</td>
+      <td>Api::V1::EmailaccountsController</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/companies_controller.rb:1</td>
+      <td>Api::V1::CompaniesController</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/invite_controller.rb:1</td>
+      <td>Api::V1::InviteController</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/api/v1/groups_controller.rb:1</td>
+      <td>Api::V1::GroupsController</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>app/controllers/api/v1/users_controller.rb:1</td>
+      <td>Api::V1::UsersController</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>app/controllers/application_controller.rb:1</td>
+      <td>ApplicationController<</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/google.rb:1</td>
+      <td>GOOGLE</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>lib/yandex.rb:3</td>
+      <td>PDD</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>lib/api_exception.rb:1</td>
+      <td>ApiError</td>
+    </tr>
+    
+  
+</table>
+
+
+
+<p>Generated on 2015-02-26 09:03:34 -0500</p>
+
+    </div>
+
+    
+    <script language="javascript" src="bluff_graph.js" type="text/javascript"></script>
+  </body>
+</html>

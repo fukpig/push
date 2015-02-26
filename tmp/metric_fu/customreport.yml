@@ -1,0 +1,3145 @@
+---
+:flog:
+  :total: 2655.4594797550285
+  :average: 12.293793887754761
+  :method_containers:
+  - :name: Api::V1::DomainsController
+    :path: app/controllers/api/v1/domains_controller.rb
+    :total_score: 311.4562881734835
+    :highest_score: 61.51083237934602
+    :average_score: 19.466018010842717
+    :methods:
+      Api::V1::DomainsController#create:
+        :operators:
+          :authorize!: 1.0
+          :assignment: 6.800000000000001
+          :[]: 7.800000000000001
+          :split_email: 1.0
+          :whois: 1.0
+          :current_user: 11.200000000000001
+          :set_recovery_cellphone: 1.0
+          :branch: 3.2
+          :empty?: 1.0
+          :new: 4.1000000000000005
+          :raise: 3.5000000000000004
+          :available?: 1.0
+          :where: 1.4000000000000001
+          :first: 1.2000000000000002
+          :nil?: 1.2000000000000002
+          :ps_price: 1.6
+          :amount_per_day: 1.6
+          :+: 1.4000000000000001
+          :check_balance: 1.2000000000000002
+          :id: 8.4
+          :register: 1.2000000000000002
+          :pay_domain: 1.2000000000000002
+          :create_email: 1.2000000000000002
+          :lit_fixnum: 0.6500000000000001
+          :pay_email: 1.2000000000000002
+          :create_subscriptions: 1.2000000000000002
+          :add_user_to_company: 1.2000000000000002
+          :as_json: 1.4000000000000001
+          :show_response: 1.2000000000000002
+        :score: 61.51083237934602
+        :path: app/controllers/api/v1/domains_controller.rb:38
+      Api::V1::DomainsController#none:
+        :operators:
+          :require: 1.0
+          :include: 2.0
+          :api: 7.0
+          :param: 13.0
+          :lit_fixnum: 3.0
+          :error: 10.0
+          :private: 1.0000000000000004
+        :score: 37.0
+        :path: 
+      Api::V1::DomainsController#test_async:
+        :operators:
+          :assignment: 9.600000000000005
+          :response: 4.300000000000001
+          :headers: 1.0000000000000002
+          :[]: 1.0000000000000002
+          :all: 1.0000000000000002
+          :branch: 4.700000000000002
+          :each: 1.0000000000000002
+          :+: 7.900000000000003
+          :name: 3.600000000000001
+          :whois: 1.3000000000000005
+          :nil?: 1.6000000000000005
+          :!: 1.4000000000000006
+          :available?: 1.6000000000000005
+          :==: 1.4000000000000006
+          :stream: 2.700000000000001
+          :write: 1.3000000000000007
+          :puts: 1.2000000000000006
+          :close: 1.0000000000000004
+        :score: 34.97341847746658
+        :path: app/controllers/api/v1/domains_controller.rb:202
+      Api::V1::DomainsController#get_register_price:
+        :operators:
+          :authorize!: 1.0000000000000002
+          :assignment: 7.200000000000001
+          :[]: 2.4000000000000004
+          :to_ascii: 1.0000000000000002
+          :split: 1.0000000000000002
+          :first: 3.200000000000001
+          :second: 1.0000000000000002
+          :where: 2.6000000000000005
+          :check_domain_valid: 1.0000000000000002
+          :whois: 1.0000000000000002
+          :branch: 1.0000000000000002
+          :available?: 1.2000000000000002
+          :==: 1.0000000000000002
+          :ps_price: 1.4000000000000004
+          :amount_per_day: 1.4000000000000004
+          :show_response: 1.2000000000000004
+          :get_domains_variants: 1.5000000000000002
+          :new: 1.3000000000000003
+          :raise: 1.1000000000000003
+        :score: 25.363950796356633
+        :path: app/controllers/api/v1/domains_controller.rb:179
+      Api::V1::DomainsController#check_available:
+        :operators:
+          :branch: 2.2
+          :[]: 4.6000000000000005
+          :nil?: 1.2
+          :!: 1.0
+          :assignment: 4.000000000000001
+          :whois: 1.2000000000000002
+          :available?: 4.500000000000002
+          :==: 1.2000000000000002
+          :split: 1.6000000000000005
+          :first: 1.4000000000000006
+          :domain: 1.6000000000000005
+          :get_suggest: 1.4000000000000006
+          :show_response: 2.700000000000001
+          :new: 1.3000000000000003
+          :raise: 1.1000000000000003
+        :score: 25.216661158844975
+        :path: app/controllers/api/v1/domains_controller.rb:156
+      Api::V1::DomainsController#get_domains_variants:
+        :operators:
+          :assignment: 4.400000000000002
+          :domain: 1.2000000000000004
+          :get_suggest: 1.0000000000000004
+          :new: 1.0000000000000004
+          :branch: 4.8000000000000025
+          :each: 2.200000000000001
+          :lit_fixnum: 1.1500000000000006
+          :==: 2.6000000000000014
+          :[]: 3.4000000000000012
+          :+: 4.8000000000000025
+          :<<: 1.400000000000001
+        :score: 19.848488607448186
+        :path: app/controllers/api/v1/domains_controller.rb:236
+      Api::V1::DomainsController#accept:
+        :operators:
+          :authorize!: 1.0
+          :assignment: 2.2
+          :user_id: 1.2
+          :get_delegate_invite: 1.0
+          :branch: 1.0
+          :accept: 1.0
+          :domain_id: 1.4000000000000001
+          :find: 1.2000000000000002
+          :current_user: 1.6
+          :id: 2.8000000000000003
+          :change_owner: 2.4000000000000004
+          :show_response: 1.2000000000000002
+          :errors: 1.5
+          :new: 1.3
+          :raise: 1.1
+        :score: 18.855503175465778
+        :path: app/controllers/api/v1/domains_controller.rb:113
+      Api::V1::DomainsController#add_domain_to_list:
+        :operators:
+          :assignment: 4.0
+          :new: 1.0
+          :[]: 7.8
+          :where: 2.4
+          :first: 2.0
+        :score: 13.792751719653335
+        :path: app/controllers/api/v1/domains_controller.rb:144
+      Api::V1::DomainsController#delegated_domain_to_me:
+        :operators:
+          :authorize!: 1.0
+          :assignment: 2.0
+          :new: 1.0
+          :current_user: 1.4
+          :id: 1.2
+          :where: 1.0
+          :branch: 2.1
+          :each: 1.0
+          :accepted?: 1.1
+          :add_domain_to_list: 1.4000000000000001
+          :<<: 1.2000000000000002
+          :show_response: 1.0
+        :score: 11.666190466471907
+        :path: app/controllers/api/v1/domains_controller.rb:103
+      Api::V1::DomainsController#delete:
+        :operators:
+          :authorize!: 1.0
+          :check_owner: 1.0
+          :assignment: 1.0
+          :[]: 1.2
+          :find: 1.0
+          :destroy: 1.0
+          :branch: 1.0
+          :destroyed?: 1.0
+          :show_response: 1.1
+          :errors: 1.5
+          :new: 1.3
+          :raise: 1.1
+        :score: 11.288932633336069
+        :path: app/controllers/api/v1/domains_controller.rb:80
+      Api::V1::DomainsController#delegate:
+        :operators:
+          :authorize!: 1.0
+          :[]: 4.2
+          :check_owner: 1.0
+          :assignment: 2.0
+          :current_user: 2.4
+          :delegate: 1.0
+          :show_response: 1.0
+        :score: 10.787029248129441
+        :path: app/controllers/api/v1/domains_controller.rb:94
+      Api::V1::DomainsController#info:
+        :operators:
+          :authorize!: 1.0
+          :[]: 2.4
+          :check_owner: 1.0
+          :assignment: 1.0
+          :current_user: 1.4
+          :domains: 1.2
+          :find: 1.0
+          :as_json: 1.2
+          :show_response: 1.0
+        :score: 10.248902380255165
+        :path: app/controllers/api/v1/domains_controller.rb:20
+      Api::V1::DomainsController#check_domain_valid:
+        :operators:
+          :branch: 3.1000000000000014
+          :nil?: 1.1000000000000005
+          :!: 2.4000000000000012
+          :match: 1.4000000000000006
+          :get_domains_variants: 1.5000000000000004
+          :new: 1.3000000000000005
+          :raise: 1.1000000000000005
+        :score: 9.33005894943864
+        :path: app/controllers/api/v1/domains_controller.rb:226
+      Api::V1::DomainsController#reject:
+        :operators:
+          :authorize!: 1.0
+          :assignment: 1.0
+          :user_id: 1.2
+          :get_delegate_invite: 1.0
+          :branch: 1.0
+          :destroyed?: 1.0
+          :show_response: 1.1
+          :errors: 1.5
+          :new: 1.3
+          :raise: 1.1
+        :score: 9.308061022576078
+        :path: app/controllers/api/v1/domains_controller.rb:131
+      Api::V1::DomainsController#check_owner:
+        :operators:
+          :branch: 1.0000000000000004
+          :current_user: 1.6000000000000003
+          :domains: 1.4000000000000004
+          :where: 1.2000000000000004
+          :present?: 1.0000000000000004
+          :new: 1.3000000000000005
+          :raise: 1.1000000000000005
+        :score: 7.665507158694722
+        :path: app/controllers/api/v1/domains_controller.rb:232
+      Api::V1::DomainsController#list:
+        :operators:
+          :authorize!: 1.0
+          :current_user: 1.4
+          :list: 1.2
+          :show_response: 1.0
+        :score: 4.6
+        :path: app/controllers/api/v1/domains_controller.rb:9
+  - :name: Api::V1::UsersController
+    :path: app/controllers/api/v1/users_controller.rb
+    :total_score: 299.7817338549688
+    :highest_score: 61.10000000000007
+    :average_score: 14.27532065976042
+    :methods:
+      Api::V1::UsersController#none:
+        :operators:
+          :require: 1.0000000000000009
+          :api: 18.000000000000025
+          :param: 20.00000000000002
+          :lit_fixnum: 5.100000000000006
+          :error: 17.00000000000002
+        :score: 61.10000000000007
+        :path: 
+      Api::V1::UsersController#belong_to:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 4.600000000000004
+          :current_user: 3.400000000000002
+          :[]: 9.400000000000007
+          :lit_fixnum: 0.3000000000000002
+          :where: 4.0000000000000036
+          :new: 1.0000000000000009
+          :branch: 2.200000000000002
+          :each: 1.0000000000000009
+          :domain_id: 1.600000000000001
+          :first: 2.6000000000000023
+          :id: 1.8000000000000014
+          :<<: 1.4000000000000015
+          :show_response: 1.000000000000001
+        :score: 28.952547383606873
+        :path: app/controllers/api/v1/users_controller.rb:48
+      Api::V1::UsersController#recover:
+        :operators:
+          :assignment: 5.200000000000005
+          :generate_user_hash: 1.0000000000000009
+          :branch: 4.0000000000000036
+          :[]: 10.300000000000008
+          :nil?: 1.2000000000000008
+          :!: 1.0000000000000009
+          :==: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :strip: 1.300000000000001
+          :hexdigest: 1.300000000000001
+          :lit_fixnum: 0.32500000000000023
+          :create: 1.100000000000001
+          :send_reg_sms: 1.0000000000000009
+          :show_response: 1.100000000000001
+        :score: 28.393320077088575
+        :path: app/controllers/api/v1/users_controller.rb:27
+      Api::V1::UsersController#update_info:
+        :operators:
+          :authorize!: 1.000000000000001
+          :branch: 2.000000000000002
+          :current_user: 3.1000000000000023
+          :[]: 5.600000000000005
+          :update_attributes: 1.1000000000000012
+          :nil?: 1.3000000000000012
+          :!: 1.1000000000000012
+          :id: 1.6000000000000014
+          :where: 1.4000000000000015
+          :update_all: 1.2000000000000015
+          :show_response: 1.2000000000000015
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 21.09502310972901
+        :path: app/controllers/api/v1/users_controller.rb:79
+      Api::V1::UsersController#register:
+        :operators:
+          :assignment: 4.100000000000005
+          :generate_user_hash: 1.0000000000000013
+          :branch: 2.0000000000000027
+          :[]: 5.300000000000005
+          :nil?: 1.2000000000000013
+          :!: 1.0000000000000013
+          :where: 1.2000000000000013
+          :strip: 1.2000000000000013
+          :lit_fixnum: 0.3000000000000003
+          :first_or_create: 1.0000000000000013
+          :send_sms: 1.0000000000000013
+          :show_response: 1.1000000000000014
+          :errors: 1.5000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 18.76299549645527
+        :path: app/controllers/api/v1/users_controller.rb:95
+      Api::V1::UsersController#resend_code:
+        :operators:
+          :assignment: 2.200000000000003
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 3.200000000000004
+          :activated?: 1.3000000000000014
+          :==: 1.1000000000000014
+          :generate_user_hash: 1.2000000000000015
+          :send_sms: 1.2000000000000015
+          :show_response: 1.3000000000000016
+          :errors: 1.7000000000000015
+          :new: 1.5000000000000016
+          :raise: 1.3000000000000016
+        :score: 14.721412975662371
+        :path: app/controllers/api/v1/users_controller.rb:159
+      Api::V1::UsersController#get_cost_subscription:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :assignment: 2.0000000000000027
+          :current_user: 2.8000000000000025
+          :billing_subscription: 1.2000000000000013
+          :[]: 1.2000000000000013
+          :find: 2.0000000000000027
+          :domain: 1.2000000000000013
+          :type_of: 1.4000000000000012
+          :get_full_amount: 1.2000000000000013
+          :show_response: 1.0000000000000013
+        :score: 13.15294643796592
+        :path: app/controllers/api/v1/users_controller.rb:212
+      Api::V1::UsersController#confirm:
+        :operators:
+          :assignment: 2.0000000000000027
+          :[]: 3.8000000000000034
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :!: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+          :check_code: 1.0000000000000013
+          :activate: 1.0000000000000013
+          :show_response: 1.0000000000000013
+        :score: 12.600000000000014
+        :path: app/controllers/api/v1/users_controller.rb:130
+      Api::V1::UsersController#get_recovery_cellphone:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :current_user: 3.1000000000000023
+          :domains: 1.4000000000000012
+          :count: 1.2000000000000013
+          :>: 1.0000000000000013
+          :recovery_cellphone: 1.3000000000000014
+          :show_response: 1.1000000000000014
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 12.539936203984462
+        :path: app/controllers/api/v1/users_controller.rb:114
+      Api::V1::UsersController#update_device:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :current_user: 1.2000000000000013
+          :[]: 1.2000000000000013
+          :update_attribute: 1.0000000000000013
+          :show_response: 1.1000000000000014
+          :user: 1.7000000000000013
+          :errors: 1.5000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 11.144954015158621
+        :path: app/controllers/api/v1/users_controller.rb:144
+      Api::V1::UsersController#delete_by_phone:
+        :operators:
+          :assignment: 1.0000000000000013
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :destroy: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :destroyed?: 1.0000000000000013
+          :show_response: 1.1000000000000014
+          :errors: 1.5000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 10.693923508235892
+        :path: app/controllers/api/v1/users_controller.rb:172
+      Api::V1::UsersController#check_phone:
+        :operators:
+          :assignment: 3.000000000000004
+          :root: 1.2000000000000013
+          :join: 1.0000000000000013
+          :[]: 1.2000000000000013
+          :+: 1.0000000000000013
+          :parse: 1.0000000000000013
+          :validate: 1.2000000000000013
+          :territory: 1.4000000000000012
+          :name: 1.2000000000000013
+          :show_response: 1.0000000000000013
+        :score: 10.632027088001625
+        :path: app/controllers/api/v1/users_controller.rb:241
+      Api::V1::UsersController#bill_mailboxes:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :assignment: 1.0000000000000013
+          :current_user: 1.6000000000000012
+          :billing_subscription: 1.4000000000000012
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :bill: 1.0000000000000013
+          :show_response: 1.0000000000000013
+        :score: 9.651942809610933
+        :path: app/controllers/api/v1/users_controller.rb:232
+      Api::V1::UsersController#bill_domain:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :assignment: 1.0000000000000013
+          :current_user: 1.6000000000000012
+          :billing_subscription: 1.4000000000000012
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :bill: 1.0000000000000013
+          :show_response: 1.0000000000000013
+        :score: 9.651942809610933
+        :path: app/controllers/api/v1/users_controller.rb:222
+      Api::V1::UsersController#to_balance:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :current_user: 1.2000000000000013
+          :[]: 1.4000000000000012
+          :to_f: 1.2000000000000013
+          :to_credit: 1.0000000000000013
+          :show_response: 1.0000000000000013
+        :score: 6.800000000000008
+        :path: app/controllers/api/v1/users_controller.rb:188
+      Api::V1::UsersController#get_subscriptions:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :current_user: 1.6000000000000012
+          :billing_subscriptions: 1.4000000000000012
+          :as_json: 1.2000000000000013
+          :show_response: 1.0000000000000013
+        :score: 6.200000000000006
+        :path: app/controllers/api/v1/users_controller.rb:204
+      Api::V1::UsersController#list:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.0000000000000018
+          :current_user: 1.2000000000000008
+          :domain_ids: 1.0000000000000009
+          :list: 1.0000000000000009
+          :show_response: 1.0000000000000009
+        :score: 5.571355310873653
+        :path: app/controllers/api/v1/users_controller.rb:10
+      Api::V1::UsersController#test_push_android:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :current_user: 1.4000000000000012
+          :device_token: 1.2000000000000013
+          :send_android_notify: 1.0000000000000013
+        :score: 4.600000000000005
+        :path: app/controllers/api/v1/users_controller.rb:262
+      Api::V1::UsersController#test_push_ios:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :current_user: 1.4000000000000012
+          :device_token: 1.2000000000000013
+          :send_ios_notify: 1.0000000000000013
+        :score: 4.600000000000005
+        :path: app/controllers/api/v1/users_controller.rb:253
+      Api::V1::UsersController#balance:
+        :operators:
+          :authorize!: 1.0000000000000013
+          :current_user: 1.4000000000000012
+          :internal_credit: 1.2000000000000013
+          :show_response: 1.0000000000000013
+        :score: 4.600000000000005
+        :path: app/controllers/api/v1/users_controller.rb:197
+      Api::V1::UsersController#info:
+        :operators:
+          :authorize!: 1.000000000000001
+          :assignment: 1.000000000000001
+          :current_user: 1.200000000000001
+          :as_json: 1.000000000000001
+          :show_response: 1.000000000000001
+        :score: 4.3174066289845845
+        :path: app/controllers/api/v1/users_controller.rb:67
+  - :name: main
+    :path: ''
+    :total_score: 51.9457409226205
+    :highest_score: 51.9457409226205
+    :average_score: 51.9457409226205
+    :methods:
+      main#none:
+        :operators:
+          :require: 3.3000000000000065
+          :run: 1.1000000000000019
+          :branch: 9.40000000000002
+          :loop: 2.2000000000000046
+          :assignment: 11.400000000000023
+          :new: 4.6000000000000085
+          :insert_site_verify_google: 1.4000000000000024
+          :message: 3.0000000000000053
+          :puts: 6.100000000000013
+          :lit_fixnum: 1.2000000000000022
+          :sleep: 2.4000000000000057
+          :all: 1.400000000000003
+          :each: 1.400000000000003
+          :sample: 1.9000000000000032
+          :join: 1.6000000000000032
+          :[]: 13.200000000000024
+          :email_create: 1.6000000000000032
+          :==: 1.6000000000000032
+          :destroy!: 1.8000000000000036
+        :score: 51.9457409226205
+        :path: 
+  - :name: Api::V1::EmailaccountsController
+    :path: app/controllers/api/v1/emailaccounts_controller.rb
+    :total_score: 210.32512809740498
+    :highest_score: 43.5230111550201
+    :average_score: 21.0325128097405
+    :methods:
+      Api::V1::EmailaccountsController#create:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :branch: 2.200000000000002
+          :transaction: 1.0000000000000009
+          :current_user: 7.400000000000006
+          :lit_fixnum: 0.6500000000000006
+          :check_balance: 1.200000000000001
+          :assignment: 7.300000000000006
+          :[]: 16.100000000000012
+          :split_email: 1.200000000000001
+          :domains: 1.600000000000001
+          :where: 1.400000000000001
+          :first: 1.200000000000001
+          :create_email: 1.200000000000001
+          :create_invite: 1.200000000000001
+          :nil?: 1.200000000000001
+          :to_i: 1.3000000000000012
+          :id: 1.400000000000001
+          :pay_email: 1.200000000000001
+          :as_json: 1.400000000000001
+          :show_response: 1.200000000000001
+        :score: 43.5230111550201
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:33
+      Api::V1::EmailaccountsController#none:
+        :operators:
+          :include: 2.0000000000000018
+          :require: 1.0000000000000009
+          :api: 5.000000000000004
+          :param: 15.000000000000007
+          :lit_fixnum: 1.500000000000001
+          :error: 5.000000000000004
+        :score: 29.500000000000018
+        :path: 
+      Api::V1::EmailaccountsController#info:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.200000000000002
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :[]: 4.200000000000003
+          :where: 2.4000000000000017
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :present?: 1.0000000000000009
+          :find: 1.200000000000001
+          :emails: 1.400000000000001
+          :as_json: 2.6000000000000023
+        :score: 23.7865508218405
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:11
+      Api::V1::EmailaccountsController#check:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 4.600000000000004
+          :[]: 8.000000000000007
+          :downcase: 2.8000000000000016
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 1.0000000000000009
+          :!: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :split_email: 1.200000000000001
+          :generate_email: 1.200000000000001
+          :new: 1.400000000000001
+          :raise: 1.200000000000001
+        :score: 21.61874186903578
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:95
+      Api::V1::EmailaccountsController#hold_to_admin:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.0000000000000018
+          :[]: 1.4000000000000008
+          :where: 2.4000000000000017
+          :first: 2.0000000000000018
+          :current_user: 3.0000000000000018
+          :domains: 1.4000000000000008
+          :domain_id: 1.4000000000000008
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :emails: 1.5000000000000009
+          :new: 1.300000000000001
+          :raise: 1.100000000000001
+          :id: 1.2000000000000008
+          :update_attribute: 1.0000000000000009
+          :show_response: 1.100000000000001
+        :score: 20.991426821443092
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:108
+      Api::V1::EmailaccountsController#delete:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.200000000000002
+          :[]: 2.8000000000000016
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :destroy: 1.0000000000000009
+          :destroyed?: 1.0000000000000009
+          :split_email: 1.200000000000001
+          :show_response: 1.200000000000001
+          :errors: 1.5000000000000009
+        :score: 17.947980387776237
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:69
+      Api::V1::EmailaccountsController#enable:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :email_accounts: 1.4000000000000008
+          :[]: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :update_attributes: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+        :score: 17.146428199482255
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:119
+      Api::V1::EmailaccountsController#disable:
+        :operators:
+          :assignment: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :email_accounts: 1.4000000000000008
+          :[]: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :update_attributes: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+        :score: 16.15549442140352
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:130
+      Api::V1::EmailaccountsController#change_password:
+        :operators:
+          :assignment: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :email_accounts: 1.4000000000000008
+          :[]: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :updatepassword: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+        :score: 16.15549442140352
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:140
+      Api::V1::EmailaccountsController#get_email_price:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :amount_per_day: 1.2000000000000008
+          :lit_fixnum: 0.3000000000000002
+          :show_response: 1.0000000000000009
+        :score: 3.500000000000003
+        :path: app/controllers/api/v1/emailaccounts_controller.rb:154
+  - :name: Billing::Invoice
+    :path: app/models/billing/invoice.rb
+    :total_score: 68.69524747126945
+    :highest_score: 36.1708446127541
+    :average_score: 8.586905933908682
+    :methods:
+      Billing::Invoice#none:
+        :operators:
+          :assignment: 2.3000000000000025
+          :branch: 8.000000000000009
+          :default_scope: 1.0000000000000013
+          :order: 1.1000000000000014
+          :belongs_to: 1.0000000000000013
+          :has_many: 1.0000000000000013
+          :serialize: 1.0000000000000013
+          :validates: 2.0000000000000027
+          :lambda: 3.600000000000004
+          :where: 3.900000000000004
+          :scope: 4.000000000000005
+          :days: 1.3000000000000014
+          :paid_at: 1.8000000000000014
+          :==: 1.6000000000000014
+          :due_date: 1.8000000000000014
+          :today: 2.0000000000000013
+          :+: 1.8000000000000014
+          :<: 1.6000000000000014
+          :&: 1.4000000000000015
+          :overdue_in: 1.2000000000000013
+          :after_create: 1.0000000000000013
+          :zero?: 1.1000000000000014
+        :score: 36.1708446127541
+        :path: 
+      Billing::Invoice#pay!:
+        :operators:
+          :assignment: 3.3000000000000043
+          :branch: 4.300000000000006
+          :paid?: 1.0000000000000013
+          :user: 2.800000000000003
+          :purchase!: 1.2000000000000015
+          :success?: 2.5000000000000027
+          :!: 1.2000000000000015
+          :processor_response_code: 1.7000000000000015
+          :processor_response_text: 1.7000000000000015
+          :new: 1.5000000000000016
+          :raise: 2.400000000000003
+          :paid!: 1.2000000000000015
+          :void: 1.2000000000000015
+        :score: 19.181762171396063
+        :path: app/models/billing/invoice.rb:86
+      Billing::Invoice#paid!:
+        :operators:
+          :assignment: 2.0000000000000027
+          :now: 1.0000000000000013
+          :save!: 1.0000000000000013
+        :score: 2.828427124746194
+        :path: app/models/billing/invoice.rb:75
+      Billing::Invoice#amount_as_cents:
+        :operators:
+          :amount: 1.2000000000000013
+          :lit_fixnum: 0.3000000000000003
+          :*: 1.0000000000000013
+        :score: 2.5000000000000027
+        :path: app/models/billing/invoice.rb:100
+      Billing::Invoice#unpaid?:
+        :operators:
+          :paid?: 1.2000000000000013
+          :!: 1.0000000000000013
+        :score: 2.200000000000003
+        :path: app/models/billing/invoice.rb:71
+      Billing::Invoice#paid?:
+        :operators:
+          :paid_at: 1.2000000000000013
+          :present?: 1.0000000000000013
+        :score: 2.200000000000003
+        :path: app/models/billing/invoice.rb:67
+      Billing::Invoice#zero?:
+        :operators:
+          :amount: 1.2000000000000013
+          :==: 1.0000000000000013
+        :score: 2.200000000000003
+        :path: app/models/billing/invoice.rb:63
+      Billing::Invoice#pay_async:
+        :operators:
+          :branch: 1.0000000000000013
+          :paid?: 1.0000000000000013
+        :score: 1.414213562373097
+        :path: app/models/billing/invoice.rb:80
+  - :name: namespace(yandex)::task
+    :path: lib/tasks/yandex.rake
+    :total_score: 35.01779012159397
+    :highest_score: 35.01779012159397
+    :average_score: 35.01779012159397
+    :methods:
+      namespace(yandex)::task#cron:
+        :operators:
+          :task: 1.100000000000002
+          :require: 1.2000000000000022
+          :assignment: 6.800000000000011
+          :new: 2.900000000000005
+          :all: 1.2000000000000022
+          :branch: 5.700000000000009
+          :each: 1.2000000000000022
+          :lit_fixnum: 0.4750000000000006
+          :sample: 1.8000000000000027
+          :join: 1.5000000000000027
+          :[]: 12.10000000000002
+          :email_create: 1.5000000000000027
+          :==: 1.5000000000000027
+          :destroy!: 1.7000000000000028
+          :puts: 4.300000000000008
+          :now: 1.4000000000000024
+        :score: 35.01779012159397
+        :path: lib/tasks/yandex.rake:3
+  - :name: Api::V1::GroupsController
+    :path: app/controllers/api/v1/groups_controller.rb
+    :total_score: 206.54129827851966
+    :highest_score: 34.531145361832436
+    :average_score: 25.817662284814958
+    :methods:
+      Api::V1::GroupsController#add:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 6.400000000000006
+          :[]: 8.000000000000004
+          :split_email: 2.200000000000002
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :where: 3.8000000000000025
+          :first: 3.200000000000003
+          :branch: 3.0000000000000027
+          :nil?: 2.200000000000002
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :!: 1.0000000000000009
+          :each: 1.0000000000000009
+          :add_email: 1.400000000000001
+          :<<: 1.200000000000001
+          :show_response: 1.0000000000000009
+        :score: 34.531145361832436
+        :path: app/controllers/api/v1/groups_controller.rb:101
+      Api::V1::GroupsController#remove:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 5.400000000000005
+          :[]: 8.000000000000004
+          :split_email: 2.200000000000002
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :where: 3.8000000000000025
+          :first: 3.200000000000003
+          :branch: 3.0000000000000027
+          :nil?: 2.200000000000002
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :!: 1.0000000000000009
+          :each: 1.0000000000000009
+          :del_email: 1.400000000000001
+          :<<: 1.200000000000001
+          :show_response: 1.0000000000000009
+        :score: 34.35986030239357
+        :path: app/controllers/api/v1/groups_controller.rb:125
+      Api::V1::GroupsController#none:
+        :operators:
+          :api: 7.000000000000006
+          :param: 17.000000000000007
+          :lit_fixnum: 2.1000000000000014
+          :error: 7.000000000000006
+        :score: 33.10000000000002
+        :path: 
+      Api::V1::GroupsController#info:
+        :operators:
+          :assignment: 3.0000000000000027
+          :[]: 10.800000000000004
+          :split_email: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :where: 2.4000000000000017
+          :first: 2.0000000000000018
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :email_accounts: 1.300000000000001
+          :strftime: 1.300000000000001
+          :show_response: 1.100000000000001
+        :score: 28.925594203058317
+        :path: app/controllers/api/v1/groups_controller.rb:43
+      Api::V1::GroupsController#delete:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 3.0000000000000027
+          :[]: 5.400000000000002
+          :split_email: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :where: 2.4000000000000017
+          :first: 2.0000000000000018
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :destroy: 1.0000000000000009
+          :destroyed?: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+        :score: 25.45662978479282
+        :path: app/controllers/api/v1/groups_controller.rb:80
+      Api::V1::GroupsController#create:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 3.0000000000000027
+          :[]: 6.200000000000005
+          :split_email: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :domains: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :create: 1.0000000000000009
+          :branch: 1.0000000000000009
+          :new_record?: 1.2000000000000008
+          :!: 1.0000000000000009
+          :as_json: 1.300000000000001
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+          :new: 1.300000000000001
+          :raise: 1.100000000000001
+        :score: 23.117309532036828
+        :path: app/controllers/api/v1/groups_controller.rb:61
+      Api::V1::GroupsController#list:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 4.200000000000004
+          :current_user: 1.2000000000000008
+          :domain_ids: 1.0000000000000009
+          :where: 2.400000000000002
+          :new: 1.0000000000000009
+          :branch: 2.200000000000002
+          :each: 1.0000000000000009
+          :[]: 6.100000000000004
+          :first: 1.200000000000001
+          :<<: 1.3000000000000012
+          :show_response: 1.0000000000000009
+        :score: 17.841524598531386
+        :path: app/controllers/api/v1/groups_controller.rb:7
+      Api::V1::GroupsController#check:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 1.0000000000000009
+          :[]: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 1.0000000000000009
+          :!: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :new: 1.300000000000001
+          :raise: 1.100000000000001
+        :score: 9.209234495874243
+        :path: app/controllers/api/v1/groups_controller.rb:26
+  - :name: namespace(zones)::task
+    :path: lib/tasks/zones.rake
+    :total_score: 33.93832641719394
+    :highest_score: 33.93832641719394
+    :average_score: 33.93832641719394
+    :methods:
+      namespace(zones)::task#fetch_reg_ru:
+        :operators:
+          :task: 1.1000000000000023
+          :require: 2.400000000000005
+          :assignment: 7.400000000000015
+          :delete_all: 1.2000000000000024
+          :domain: 1.4000000000000024
+          :get_prices: 1.2000000000000024
+          :branch: 1.2000000000000024
+          :prices: 7.60000000000001
+          :keys: 1.4000000000000024
+          :each: 1.2000000000000024
+          :[]: 5.400000000000008
+          :reg_price: 3.2000000000000055
+          :reg_min_period: 1.6000000000000028
+          :new: 1.4000000000000028
+          :save: 1.4000000000000028
+          :now: 1.4000000000000026
+          :puts: 1.2000000000000026
+        :score: 33.93832641719394
+        :path: lib/tasks/zones.rake:3
+  - :name: Api::V1::InviteController
+    :path: app/controllers/api/v1/invite_controller.rb
+    :total_score: 99.62628151193104
+    :highest_score: 28.406029289571634
+    :average_score: 16.604380251988506
+    :methods:
+      Api::V1::InviteController#accept:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.200000000000002
+          :current_user: 3.200000000000002
+          :[]: 8.400000000000006
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :update_attribute: 1.0000000000000009
+          :lit_fixnum: 0.35000000000000026
+          :add_user_to_company: 1.200000000000001
+          :find: 1.200000000000001
+          :update_attributes: 1.200000000000001
+          :show_response: 1.200000000000001
+          :errors: 1.5000000000000009
+        :score: 28.406029289571634
+        :path: app/controllers/api/v1/invite_controller.rb:40
+      Api::V1::InviteController#none:
+        :operators:
+          :api: 4.0000000000000036
+          :param: 10.000000000000007
+          :lit_fixnum: 1.2000000000000008
+          :error: 4.0000000000000036
+        :score: 19.200000000000017
+        :path: 
+      Api::V1::InviteController#reject:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 1.0000000000000009
+          :current_user: 1.6000000000000008
+          :[]: 2.8000000000000016
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 2.0000000000000018
+          :nil?: 1.0000000000000009
+          :new: 2.600000000000002
+          :raise: 2.200000000000002
+          :destroyed?: 1.0000000000000009
+          :show_response: 1.100000000000001
+          :errors: 1.5000000000000009
+        :score: 17.146428199482255
+        :path: app/controllers/api/v1/invite_controller.rb:58
+      Api::V1::InviteController#add_invite_to_list:
+        :operators:
+          :assignment: 4.0000000000000036
+          :new: 1.0000000000000009
+          :[]: 7.800000000000006
+          :where: 2.4000000000000017
+          :first: 2.0000000000000018
+        :score: 13.792751719653346
+        :path: app/controllers/api/v1/invite_controller.rb:69
+      Api::V1::InviteController#list:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.0000000000000018
+          :new: 1.0000000000000009
+          :current_user: 1.4000000000000008
+          :cellphone: 1.2000000000000008
+          :where: 1.0000000000000009
+          :branch: 2.100000000000002
+          :each: 1.0000000000000009
+          :accepted?: 1.100000000000001
+          :add_invite_to_list: 1.400000000000001
+          :<<: 1.200000000000001
+          :show_response: 1.0000000000000009
+        :score: 11.666190466471916
+        :path: app/controllers/api/v1/invite_controller.rb:25
+      Api::V1::InviteController#create:
+        :operators:
+          :authorize!: 1.0000000000000009
+          :assignment: 2.0000000000000018
+          :current_user: 1.2000000000000008
+          :[]: 5.000000000000004
+          :create_invite: 1.0000000000000009
+          :show_response: 1.0000000000000009
+        :score: 9.414881836751862
+        :path: app/controllers/api/v1/invite_controller.rb:9
+  - :name: Api::V1::TokenController
+    :path: app/controllers/api/v1/token_controller.rb
+    :total_score: 36.72879752741934
+    :highest_score: 27.021657980220258
+    :average_score: 12.242932509139779
+    :methods:
+      Api::V1::TokenController#get:
+        :operators:
+          :assignment: 7.4000000000000075
+          :[]: 4.500000000000003
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :branch: 7.100000000000007
+          :authenticate: 1.200000000000001
+          :activated?: 1.200000000000001
+          :find_api_key: 1.200000000000001
+          :is_locked: 1.400000000000001
+          :!: 2.7000000000000024
+          :now: 1.4000000000000012
+          :access_token: 1.7000000000000013
+          :empty?: 1.5000000000000013
+          :set_expiry_date: 1.6000000000000014
+          :generate_access_token: 1.6000000000000014
+          :save: 1.4000000000000012
+          :as_json: 1.4000000000000012
+        :score: 27.021657980220258
+        :path: app/controllers/api/v1/token_controller.rb:7
+      Api::V1::TokenController#delete:
+        :operators:
+          :assignment: 5.200000000000005
+          :[]: 1.4000000000000008
+          :where: 1.2000000000000008
+          :first: 1.0000000000000009
+          :now: 1.0000000000000009
+          :branch: 1.0000000000000009
+          :save: 1.0000000000000009
+        :score: 7.707139547199083
+        :path: app/controllers/api/v1/token_controller.rb:33
+      Api::V1::TokenController#none:
+        :operators:
+          :skip_before_filter: 1.0000000000000009
+          :after_filter: 1.0000000000000009
+        :score: 2.0000000000000018
+        :path: 
+  - :name: Invite::create_invite
+    :path: app/models/invite.rb
+    :total_score: 26.992776811584278
+    :highest_score: 26.992776811584278
+    :average_score: 26.992776811584278
+    :methods:
+      Invite::create_invite:
+        :operators:
+          :assignment: 2.0000000000000036
+          :[]: 16.00000000000002
+          :find: 1.0000000000000018
+          :check_existed_user: 1.0000000000000018
+          :check_invite_himself: 1.0000000000000018
+          :domains: 1.2000000000000017
+          :domain_owner?: 1.0000000000000018
+          :create: 1.0000000000000018
+          :branch: 1.0000000000000018
+          :where: 1.4000000000000017
+          :present?: 1.2000000000000017
+          :!: 1.0000000000000018
+          :save_invite: 1.1000000000000019
+        :score: 26.992776811584278
+        :path: app/models/invite.rb:10
+  - :name: User
+    :path: app/models/user.rb
+    :total_score: 187.699850361294
+    :highest_score: 22.4786565434859
+    :average_score: 9.878939492699685
+    :methods:
+      User#set_recovery_cellphone:
+        :operators:
+          :branch: 4.000000000000007
+          :domains: 4.400000000000006
+          :count: 2.5000000000000036
+          :>: 2.1000000000000036
+          :assignment: 2.300000000000004
+          :first: 1.3000000000000018
+          :[]: 1.1000000000000019
+          :cellphone: 1.2000000000000017
+          :==: 1.0000000000000018
+          :new: 2.6000000000000036
+          :raise: 2.2000000000000037
+          :recovery_cellphone: 1.3000000000000018
+          :!=: 1.1000000000000019
+          :save!: 1.200000000000002
+        :score: 22.4786565434859
+        :path: app/models/user.rb:60
+      User#activate:
+        :operators:
+          :branch: 1.0000000000000018
+          :aasm_state: 1.2000000000000017
+          :==: 1.0000000000000018
+          :assignment: 2.2000000000000037
+          :recovery_cellphone: 3.2000000000000037
+          :where: 2.800000000000004
+          :first: 1.200000000000002
+          :user: 3.0000000000000036
+          :internal_credit: 1.400000000000002
+          :update_attribute: 2.2000000000000037
+          :id: 1.400000000000002
+          :update_all: 1.200000000000002
+          :update_attributes: 1.0000000000000018
+          :find_api_key: 1.0000000000000018
+        :score: 20.741263220932357
+        :path: app/models/user.rb:49
+      User#from_credit:
+        :operators:
+          :assignment: 3.3000000000000056
+          :branch: 3.2000000000000055
+          :transaction: 1.0000000000000018
+          :lock_internal_credit!: 1.200000000000002
+          :internal_credit: 2.8000000000000034
+          :abs: 3.7000000000000055
+          :<: 1.200000000000002
+          :save: 1.200000000000002
+          :locked_credit: 1.4000000000000017
+          :-: 1.2000000000000017
+          :!=: 1.0000000000000018
+          :billing_transactions: 1.3000000000000018
+          :create: 1.1000000000000019
+        :score: 17.707060738586765
+        :path: app/models/user.rb:172
+      User#send_sms:
+        :operators:
+          :hexdigest: 1.2000000000000017
+          :update_attribute: 1.0000000000000018
+          :require: 1.0000000000000018
+          :assignment: 2.0000000000000036
+          :new: 2.3000000000000034
+          :cellphone: 1.4000000000000017
+          :+: 2.4000000000000035
+          :send_sms: 1.0000000000000018
+          :branch: 1.0000000000000018
+          :lit_fixnum: 0.3500000000000004
+          :[]: 1.2000000000000017
+          :==: 1.0000000000000018
+          :raise: 1.1000000000000019
+        :score: 14.128074886551268
+        :path: app/models/user.rb:29
+      User#to_credit:
+        :operators:
+          :assignment: 2.0000000000000036
+          :branch: 2.0000000000000036
+          :transaction: 1.0000000000000018
+          :lock_internal_credit!: 1.200000000000002
+          :abs: 2.2000000000000037
+          :save: 1.200000000000002
+          :internal_credit: 1.4000000000000017
+          :locked_credit: 1.4000000000000017
+          :-: 1.2000000000000017
+          :!=: 1.0000000000000018
+          :billing_transactions: 1.3000000000000018
+          :create: 1.1000000000000019
+        :score: 13.304134695650092
+        :path: app/models/user.rb:155
+      User#none:
+        :operators:
+          :has_paper_trail: 1.0000000000000018
+          :has_many: 8.000000000000014
+          :has_one: 1.0000000000000018
+          :validates: 1.0000000000000018
+          :attr_accessor: 1.0000000000000018
+          :protected: 1.0000000000000018
+        :score: 13.000000000000023
+        :path: 
+      User#create_invoice:
+        :operators:
+          :check_balance: 1.0000000000000018
+          :assignment: 10.60000000000002
+          :branch: 1.0000000000000018
+          :billing_invoices: 1.2000000000000017
+          :create!: 1.0000000000000018
+          :id: 1.200000000000002
+          :domain: 2.400000000000004
+        :score: 12.633289357883028
+        :path: app/models/user.rb:120
+      User#pay_domain:
+        :operators:
+          :assignment: 6.000000000000011
+          :find: 1.0000000000000018
+          :[]: 2.4000000000000035
+          :split: 1.2000000000000017
+          :lit_fixnum: 0.30000000000000043
+          :where: 1.2000000000000017
+          :first: 1.0000000000000018
+          :ps_price: 1.0000000000000018
+          :create_invoice: 1.0000000000000018
+          :pay!: 1.0000000000000018
+        :score: 11.74776574502575
+        :path: app/models/user.rb:84
+      User#get_full_amount:
+        :operators:
+          :branch: 1.0000000000000018
+          :==: 2.400000000000004
+          :assignment: 3.5000000000000058
+          :lit_fixnum: 0.6250000000000009
+          :elseif: 1.200000000000002
+          :amount_per_day: 1.200000000000002
+          :email_accounts: 1.5000000000000018
+          :count: 1.3000000000000018
+          :*: 1.1000000000000019
+        :score: 10.010275970221814
+        :path: app/models/user.rb:109
+      User#pay_email:
+        :operators:
+          :assignment: 4.000000000000007
+          :find: 1.0000000000000018
+          :amount_per_day: 1.2000000000000017
+          :lit_fixnum: 0.7500000000000009
+          :-: 1.4000000000000017
+          :*: 1.2000000000000017
+          :+: 1.0000000000000018
+          :create_invoice: 1.0000000000000018
+          :pay!: 1.0000000000000018
+        :score: 9.439412057962102
+        :path: app/models/user.rb:94
+      User#check_code:
+        :operators:
+          :branch: 2.0000000000000036
+          :empty?: 1.3000000000000018
+          :!: 1.1000000000000019
+          :confirmation_hash: 1.3000000000000018
+          :hexdigest: 1.3000000000000018
+          :==: 1.1000000000000019
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 8.732124598286504
+        :path: app/models/user.rb:41
+      User#check_balance:
+        :operators:
+          :assignment: 1.0000000000000018
+          :internal_credit: 1.2000000000000017
+          :-: 1.0000000000000018
+          :branch: 1.0000000000000018
+          :>: 1.0000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 5.775811631277469
+        :path: app/models/user.rb:146
+      User#pay!:
+        :operators:
+          :assignment: 2.0000000000000036
+          :full_amount: 1.2000000000000017
+          :id: 1.2000000000000017
+          :from_credit: 1.0000000000000018
+          :now: 1.0000000000000018
+          :save: 1.0000000000000018
+        :score: 5.758472019555197
+        :path: app/models/user.rb:140
+      User#create_subscriptions:
+        :operators:
+          :billing_subscription: 2.4000000000000035
+          :today: 1.2000000000000017
+          :create: 2.0000000000000036
+        :score: 5.6000000000000085
+        :path: app/models/user.rb:135
+      User#invoice!:
+        :operators:
+          :assignment: 3.0000000000000053
+          :find: 1.0000000000000018
+          :get_full_amount: 1.0000000000000018
+          :create_invoice: 1.0000000000000018
+          :pay!: 1.0000000000000018
+        :score: 5.000000000000009
+        :path: app/models/user.rb:102
+      User#enough_credit?:
+        :operators:
+          :branch: 1.0000000000000018
+          :internal_credit: 1.2000000000000017
+          :>=: 1.0000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 4.7074409183759345
+        :path: app/models/user.rb:190
+      User#add_user_to_company:
+        :operators:
+          :id: 1.2000000000000017
+          :lit_fixnum: 0.30000000000000043
+          :create: 1.0000000000000018
+        :score: 2.500000000000004
+        :path: app/models/user.rb:79
+      User#lock_internal_credit!:
+        :operators:
+          :lock!: 1.0000000000000018
+          :assignment: 1.0000000000000018
+          :internal_credit: 1.0000000000000018
+        :score: 2.236067977499794
+        :path: app/models/user.rb:196
+      User#find_api_key:
+        :operators:
+          :api_keys: 1.2000000000000017
+          :first_or_create: 1.0000000000000018
+        :score: 2.2000000000000037
+        :path: app/models/user.rb:151
+  - :name: GOOGLE
+    :path: lib/google.rb
+    :total_score: 359.85100094907233
+    :highest_score: 21.914378841299637
+    :average_score: 17.992550047453616
+    :methods:
+      GOOGLE#change_seats_google:
+        :operators:
+          :assignment: 2.000000000000004
+          :[]: 7.600000000000011
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :change_renewal_settings: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 21.914378841299637
+        :path: lib/google.rb:116
+      GOOGLE#delete_alias_google_email:
+        :operators:
+          :assignment: 3.000000000000006
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :users: 1.6000000000000019
+          :aliases: 1.400000000000002
+          :delete: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 20.841305141473295
+        :path: lib/google.rb:216
+      GOOGLE#create_alias_google_email:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 5.4000000000000075
+          :users: 1.6000000000000019
+          :aliases: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 20.812496246245935
+        :path: lib/google.rb:199
+      GOOGLE#create_subscription_google:
+        :operators:
+          :assignment: 2.000000000000004
+          :[]: 5.4000000000000075
+          :lit_fixnum: 0.8000000000000015
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 20.223995648733737
+        :path: lib/google.rb:64
+      GOOGLE#create_google_email:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 6.20000000000001
+          :users: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 20.028979005431136
+        :path: lib/google.rb:163
+      GOOGLE#change_renewal_settings_google:
+        :operators:
+          :assignment: 2.000000000000004
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :change_renewal_settings: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.92586259111512
+        :path: lib/google.rb:90
+      GOOGLE#suspend_subscription_google:
+        :operators:
+          :assignment: 1.000000000000002
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :suspend: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.850440801151017
+        :path: lib/google.rb:133
+      GOOGLE#delete_subscription_google:
+        :operators:
+          :assignment: 1.000000000000002
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :delete: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.850440801151017
+        :path: lib/google.rb:153
+      GOOGLE#activate_subscription_google:
+        :operators:
+          :assignment: 1.000000000000002
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :activate: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.850440801151017
+        :path: lib/google.rb:106
+      GOOGLE#delete_group_member_google:
+        :operators:
+          :assignment: 3.000000000000006
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :members: 1.400000000000002
+          :delete: 1.200000000000002
+          :[]: 5.600000000000008
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.261360284258252
+        :path: lib/google.rb:282
+      GOOGLE#create_group_member_google:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 5.4000000000000075
+          :members: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.246817918814553
+        :path: lib/google.rb:260
+      GOOGLE#get_verify_txt_google:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 5.200000000000007
+          :web_resource: 1.400000000000002
+          :get_token: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 3.100000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.246817918814553
+        :path: lib/google.rb:295
+      GOOGLE#create_domain_in_gapps:
+        :operators:
+          :assignment: 4.000000000000007
+          :get_google_client: 1.0000000000000018
+          :discovered_api: 1.0000000000000018
+          :[]: 5.200000000000007
+          :customers: 1.4000000000000017
+          :insert: 1.2000000000000017
+          :execute: 1.0000000000000018
+          :branch: 1.0000000000000018
+          :status: 1.2000000000000017
+          :lit_fixnum: 0.30000000000000043
+          :==: 1.0000000000000018
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.0515091265758
+        :path: lib/google.rb:29
+      GOOGLE#create_group_google:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 5.200000000000008
+          :groups: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 19.0515091265758
+        :path: lib/google.rb:227
+      GOOGLE#delete_group_google:
+        :operators:
+          :assignment: 3.000000000000006
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :groups: 1.400000000000002
+          :insert: 1.200000000000002
+          :[]: 4.400000000000006
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 18.078716768620524
+        :path: lib/google.rb:248
+      GOOGLE#delete_google_email:
+        :operators:
+          :assignment: 3.000000000000006
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :users: 1.400000000000002
+          :delete: 1.200000000000002
+          :[]: 4.400000000000006
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 18.078716768620524
+        :path: lib/google.rb:186
+      GOOGLE#insert_site_verify_google:
+        :operators:
+          :assignment: 4.000000000000008
+          :get_google_client: 1.000000000000002
+          :discovered_api: 1.000000000000002
+          :[]: 4.2000000000000055
+          :web_resource: 1.400000000000002
+          :insert: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 18.07650408679734
+        :path: lib/google.rb:317
+      GOOGLE#subscription_list_google:
+        :operators:
+          :assignment: 1.000000000000002
+          :client: 1.200000000000002
+          :reseller: 1.6000000000000019
+          :subscriptions: 1.400000000000002
+          :list: 1.200000000000002
+          :execute: 1.000000000000002
+          :branch: 1.000000000000002
+          :status: 1.200000000000002
+          :lit_fixnum: 0.3000000000000005
+          :==: 1.000000000000002
+          :data: 2.900000000000004
+          :[]: 3.2000000000000037
+          :new: 1.300000000000002
+          :raise: 1.100000000000002
+        :score: 17.457376664321615
+        :path: lib/google.rb:143
+      GOOGLE#get_google_client:
+        :operators:
+          :assignment: 3.0000000000000053
+          :new: 2.0000000000000036
+          :load_from_pkcs12: 1.0000000000000018
+          :authorization: 1.2000000000000017
+          :fetch_access_token!: 1.0000000000000018
+        :score: 6.003332407921464
+        :path: lib/google.rb:7
+      GOOGLE#none:
+        :operators:
+          :require: 3.0000000000000053
+        :score: 3.0000000000000053
+        :path: 
+  - :name: Group::add_email
+    :path: app/models/group.rb
+    :total_score: 20.914349141199715
+    :highest_score: 20.914349141199715
+    :average_score: 20.914349141199715
+    :methods:
+      Group::add_email:
+        :operators:
+          :branch: 3.0000000000000053
+          :nil?: 1.1000000000000019
+          :[]: 4.400000000000005
+          :to_i: 1.3000000000000018
+          :!=: 1.1000000000000019
+          :assignment: 3.5000000000000058
+          :group_email: 3.5000000000000058
+          :groups: 1.6000000000000016
+          :where: 1.4000000000000017
+          :first: 1.2000000000000017
+          :!: 1.0000000000000018
+          :email_accounts: 1.400000000000002
+          :<<: 1.200000000000002
+          :save!: 1.200000000000002
+        :score: 20.914349141199715
+        :path: app/models/group.rb:6
+  - :name: Billing::Subscription
+    :path: app/models/billing/subscription.rb
+    :total_score: 93.90641361766478
+    :highest_score: 19.67256973554804
+    :average_score: 7.8255344681387315
+    :methods:
+      Billing::Subscription#none:
+        :operators:
+          :assignment: 1.0000000000000013
+          :belongs_to: 1.0000000000000013
+          :before_validation: 1.0000000000000013
+          :validates: 3.000000000000004
+          :branch: 2.4000000000000026
+          :lambda: 2.4000000000000026
+          :today: 4.5000000000000036
+          :where: 2.6000000000000028
+          :scope: 2.0000000000000027
+          :attr_readonly: 1.0000000000000013
+          :delegate: 1.0000000000000013
+          :protected: 1.0000000000000013
+        :score: 19.67256973554804
+        :path: 
+      Billing::Subscription#cancel:
+        :operators:
+          :assignment: 4.300000000000006
+          :today: 3.3000000000000043
+          :reverse_merge!: 1.0000000000000013
+          :branch: 3.200000000000004
+          :<: 1.0000000000000013
+          :transaction: 1.0000000000000013
+          :[]: 1.2000000000000015
+          :user: 1.5000000000000016
+          :amount_unspent: 1.5000000000000016
+          :to_credit: 1.3000000000000016
+          :save: 1.2000000000000015
+        :score: 14.061649974309576
+        :path: app/models/billing/subscription.rb:63
+      Billing::Subscription#bill:
+        :operators:
+          :assignment: 3.4000000000000044
+          :branch: 1.0000000000000013
+          :class: 1.2000000000000013
+          :transaction: 1.0000000000000013
+          :set_billing_dates: 1.2000000000000015
+          :user: 1.4000000000000015
+          :type_of: 1.4000000000000015
+          :domain: 1.4000000000000015
+          :invoice!: 1.2000000000000015
+          :now: 1.2000000000000015
+          :save!: 1.2000000000000015
+        :score: 11.747340124470742
+        :path: app/models/billing/subscription.rb:50
+      Billing::Subscription#get_dates:
+        :operators:
+          :branch: 2.200000000000003
+          :==: 1.0000000000000013
+          :previous_billing_date: 2.800000000000003
+          :nil?: 1.2000000000000015
+          :assignment: 1.3000000000000016
+          :today: 1.3000000000000016
+          :lit_fixnum: 0.40000000000000036
+          :year: 1.4000000000000015
+          :+: 1.2000000000000015
+          :next_month: 1.1000000000000014
+        :score: 10.709341716464193
+        :path: app/models/billing/subscription.rb:111
+      Billing::Subscription#set_billing_dates:
+        :operators:
+          :branch: 2.1000000000000028
+          :new_record?: 1.0000000000000013
+          :next_billing_date: 2.5000000000000027
+          :nil?: 1.1000000000000014
+          :assignment: 3.6000000000000045
+          :type_of: 2.800000000000003
+          :get_dates: 2.400000000000003
+        :score: 10.6494131293701
+        :path: app/models/billing/subscription.rb:91
+      Billing::Subscription#days:
+        :operators:
+          :next_billing_date: 1.4000000000000012
+          :previous_action_date: 1.4000000000000012
+          :-: 1.2000000000000013
+          :to_i: 1.0000000000000013
+        :score: 5.000000000000005
+        :path: app/models/billing/subscription.rb:30
+      Billing::Subscription#days_unspent:
+        :operators:
+          :next_billing_date: 1.4000000000000012
+          :today: 1.4000000000000012
+          :-: 1.2000000000000013
+          :to_i: 1.0000000000000013
+        :score: 5.000000000000005
+        :path: app/models/billing/subscription.rb:38
+      Billing::Subscription#days_spent:
+        :operators:
+          :today: 1.4000000000000012
+          :previous_action_date: 1.4000000000000012
+          :-: 1.2000000000000013
+          :to_i: 1.0000000000000013
+        :score: 5.000000000000005
+        :path: app/models/billing/subscription.rb:34
+      Billing::Subscription#next_month:
+        :operators:
+          :today: 1.4000000000000012
+          :at_beginning_of_month: 1.2000000000000013
+          :next_month: 1.0000000000000013
+        :score: 3.6000000000000036
+        :path: app/models/billing/subscription.rb:42
+      Billing::Subscription#bill_async:
+        :operators:
+          :id: 1.4000000000000012
+          :new: 1.2000000000000013
+          :enqueue: 1.0000000000000013
+        :score: 3.6000000000000036
+        :path: app/models/billing/subscription.rb:46
+      Billing::Subscription#inherit:
+        :operators:
+          :assignment: 1.0000000000000013
+          :billing_subscription: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :blank?: 1.0000000000000013
+        :score: 2.4494897427831814
+        :path: app/models/billing/subscription.rb:79
+      Billing::Subscription#previous_action_date:
+        :operators:
+          :branch: 1.0000000000000013
+          :previous_billing_date: 1.1000000000000014
+          :subscription_date: 1.1000000000000014
+        :score: 2.4166091947189177
+        :path: app/models/billing/subscription.rb:26
+  - :name: Billing::Invoice::before_validation
+    :path: app/models/billing/invoice.rb
+    :total_score: 18.223062311258246
+    :highest_score: 18.223062311258246
+    :average_score: 18.223062311258246
+    :methods:
+      Billing::Invoice::before_validation#on:
+        :operators:
+          :before_validation: 1.0000000000000013
+          :branch: 6.6000000000000085
+          :full_amount: 2.800000000000003
+          :present?: 3.6000000000000045
+          :<: 3.6000000000000045
+          :assignment: 3.6000000000000045
+          :amount: 2.800000000000003
+          :credit_deduction: 2.800000000000003
+        :score: 18.223062311258246
+        :path: app/models/billing/invoice.rb:45
+  - :name: EmailAccount::list
+    :path: app/models/email_account.rb
+    :total_score: 18.152685751700787
+    :highest_score: 18.152685751700787
+    :average_score: 18.152685751700787
+    :methods:
+      EmailAccount::list:
+        :operators:
+          :assignment: 7.000000000000008
+          :where: 1.0000000000000013
+          :new: 1.0000000000000013
+          :branch: 3.4000000000000044
+          :each: 1.0000000000000013
+          :[]: 6.700000000000007
+          :is_admin?: 1.2000000000000015
+          :user: 3.100000000000003
+          :is_enabled?: 1.2000000000000015
+          :<<: 1.2000000000000015
+        :score: 18.152685751700787
+        :path: app/models/email_account.rb:32
+  - :name: EmailAccount::split_email
+    :path: app/models/email_account.rb
+    :total_score: 17.81588125802372
+    :highest_score: 17.81588125802372
+    :average_score: 17.81588125802372
+    :methods:
+      EmailAccount::split_email:
+        :operators:
+          :assignment: 1.0000000000000016
+          :split: 2.3000000000000034
+          :branch: 2.000000000000003
+          :count: 1.2000000000000015
+          :lit_fixnum: 1.3750000000000016
+          :<: 1.0000000000000016
+          :new: 2.600000000000003
+          :raise: 2.2000000000000033
+          :[]: 6.000000000000008
+          :match: 1.0000000000000016
+        :score: 17.81588125802372
+        :path: app/models/email_account.rb:59
+  - :name: Api::V1::CompaniesController
+    :path: app/controllers/api/v1/companies_controller.rb
+    :total_score: 67.43436523199054
+    :highest_score: 16.83901719222354
+    :average_score: 11.239060871998424
+    :methods:
+      Api::V1::CompaniesController#create:
+        :operators:
+          :assignment: 4.300000000000001
+          :new: 1.0
+          :current_user: 3.0
+          :[]: 5.2
+          :create: 2.2
+          :branch: 1.0
+          :new_record?: 1.2
+          :!: 1.0
+          :lit_fixnum: 0.35000000000000003
+          :as_json: 1.2000000000000002
+          :errors: 1.1
+        :score: 16.83901719222354
+        :path: app/controllers/api/v1/companies_controller.rb:20
+      Api::V1::CompaniesController#update:
+        :operators:
+          :assignment: 5.9
+          :new: 1.0
+          :branch: 2.2
+          :current_user: 1.5999999999999999
+          :companies: 1.4
+          :[]: 4.2
+          :where: 1.2
+          :present?: 1.0
+          :find: 1.2000000000000002
+          :update_attributes: 1.2000000000000002
+          :errors: 1.3000000000000003
+        :score: 15.442150109359769
+        :path: app/controllers/api/v1/companies_controller.rb:50
+      Api::V1::CompaniesController#delete:
+        :operators:
+          :assignment: 5.9
+          :new: 1.0
+          :branch: 2.2
+          :current_user: 1.5999999999999999
+          :companies: 1.4
+          :[]: 2.8
+          :where: 1.2
+          :present?: 1.0
+          :find: 1.2000000000000002
+          :destroy: 1.2000000000000002
+          :destroyed?: 1.2000000000000002
+          :errors: 1.3000000000000003
+        :score: 15.259750980930193
+        :path: app/controllers/api/v1/companies_controller.rb:34
+      Api::V1::CompaniesController#info:
+        :operators:
+          :assignment: 4.5
+          :new: 1.0
+          :branch: 1.0
+          :current_user: 3.2
+          :companies: 2.8
+          :[]: 2.8
+          :where: 1.2
+          :present?: 1.0
+          :find: 1.2000000000000002
+          :as_json: 1.2000000000000002
+        :score: 15.119854496654389
+        :path: app/controllers/api/v1/companies_controller.rb:9
+      Api::V1::CompaniesController#list:
+        :operators:
+          :assignment: 2.0
+          :current_user: 1.2
+          :companies: 1.0
+          :as_json: 1.0
+        :score: 3.773592452822642
+        :path: app/controllers/api/v1/companies_controller.rb:4
+      Api::V1::CompaniesController#none:
+        :operators:
+          :after_filter: 1.0
+        :score: 1.0
+        :path: 
+  - :name: Domain::register
+    :path: app/models/domain.rb
+    :total_score: 15.750634907837858
+    :highest_score: 15.750634907837858
+    :average_score: 15.750634907837858
+    :methods:
+      Domain::register:
+        :operators:
+          :branch: 2.200000000000003
+          :transaction: 1.0000000000000013
+          :assignment: 1.2000000000000015
+          :[]: 1.4000000000000015
+          :now: 1.4000000000000015
+          :lit_fixnum: 0.45000000000000034
+          :year: 1.6000000000000014
+          :from_now: 1.4000000000000015
+          :create: 1.2000000000000015
+          :new_record?: 1.4000000000000015
+          :!: 1.2000000000000015
+          :errors: 1.7000000000000015
+          :new: 1.5000000000000016
+          :raise: 1.3000000000000016
+        :score: 15.750634907837858
+        :path: app/models/domain.rb:19
+  - :name: Group::del_email
+    :path: app/models/group.rb
+    :total_score: 15.569521508382996
+    :highest_score: 15.569521508382996
+    :average_score: 15.569521508382996
+    :methods:
+      Group::del_email:
+        :operators:
+          :branch: 3.0000000000000053
+          :nil?: 1.1000000000000019
+          :[]: 2.8000000000000034
+          :to_i: 1.3000000000000018
+          :!=: 1.1000000000000019
+          :assignment: 4.500000000000007
+          :group_email: 3.5000000000000058
+          :email_accounts: 2.6000000000000036
+          :find: 1.0000000000000018
+          :delete: 1.200000000000002
+        :score: 15.569521508382996
+        :path: app/models/group.rb:21
+  - :name: EmailAccount::create_email
+    :path: app/models/email_account.rb
+    :total_score: 15.32970971675591
+    :highest_score: 15.32970971675591
+    :average_score: 15.32970971675591
+    :methods:
+      EmailAccount::create_email:
+        :operators:
+          :assignment: 3.000000000000004
+          :domains: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :[]: 3.600000000000004
+          :downcase: 1.0000000000000013
+          :get_role: 1.2000000000000013
+          :create: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :new_record?: 1.2000000000000013
+          :!: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 15.32970971675591
+        :path: app/models/email_account.rb:17
+  - :name: EmailAccount::amount_per_day
+    :path: app/models/email_account.rb
+    :total_score: 14.833745312630944
+    :highest_score: 14.833745312630944
+    :average_score: 14.833745312630944
+    :methods:
+      EmailAccount::amount_per_day:
+        :operators:
+          :assignment: 1.0000000000000013
+          :today: 3.200000000000003
+          :at_beginning_of_month: 1.6000000000000014
+          :next_month: 1.4000000000000015
+          :-: 1.2000000000000015
+          :to_i: 1.0000000000000016
+          :lit_fixnum: 1.200000000000001
+          :to_f: 1.6000000000000014
+          :/: 1.4000000000000015
+          :round: 1.2000000000000015
+          :*: 1.0000000000000016
+        :score: 14.833745312630944
+        :path: app/models/email_account.rb:54
+  - :name: Yandex::PDD
+    :path: lib/yandex.rb
+    :total_score: 143.3574563987017
+    :highest_score: 13.813037319865636
+    :average_score: 7.545129284142194
+    :methods:
+      Yandex::PDD#send_request:
+        :operators:
+          :branch: 1.0000000000000027
+          :[]: 6.800000000000013
+          :==: 1.0000000000000027
+          :assignment: 2.2000000000000055
+          :+: 2.6000000000000054
+          :get: 1.1000000000000028
+          :post: 1.1000000000000028
+          :to_hash: 1.0000000000000027
+        :score: 13.813037319865636
+        :path: lib/yandex.rb:207
+      Yandex::PDD#email_list:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:82
+      Yandex::PDD#domain_register_status:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:37
+      Yandex::PDD#domain_delegate_status:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:48
+      Yandex::PDD#email_update:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:93
+      Yandex::PDD#group_set_status:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:193
+      Yandex::PDD#domain_delete:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:59
+      Yandex::PDD#email_create:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:71
+      Yandex::PDD#domain_register:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:26
+      Yandex::PDD#domain_list:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:15
+      Yandex::PDD#group_del_email:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:171
+      Yandex::PDD#group_create:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:116
+      Yandex::PDD#group_list:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:127
+      Yandex::PDD#group_delete:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:138
+      Yandex::PDD#group_add_email:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:149
+      Yandex::PDD#group_get_status:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:182
+      Yandex::PDD#group_email_list:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:160
+      Yandex::PDD#email_delete:
+        :operators:
+          :assignment: 2.0000000000000053
+          :send_request: 1.0000000000000027
+          :branch: 1.0000000000000027
+          :[]: 2.7000000000000055
+          :!=: 1.0000000000000027
+          :new: 1.3000000000000027
+          :raise: 1.1000000000000028
+        :score: 7.443789357578589
+        :path: lib/yandex.rb:104
+      Yandex::PDD#none:
+        :operators:
+          :attr_accessor: 1.0000000000000027
+          :attr_reader: 1.0000000000000027
+          :private: 1.0000000000000027
+        :score: 3.000000000000008
+        :path: 
+  - :name: Domain
+    :path: app/models/domain.rb
+    :total_score: 23.458098825611337
+    :highest_score: 12.845232578665145
+    :average_score: 7.819366275203779
+    :methods:
+      Domain#list:
+        :operators:
+          :assignment: 3.200000000000004
+          :domains: 1.0000000000000013
+          :new: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :each: 1.0000000000000013
+          :get_next_billing_date: 1.2000000000000015
+          :id: 1.4000000000000015
+          :domain: 1.4000000000000015
+          :registration_date: 1.4000000000000015
+          :expiry_date: 1.4000000000000015
+          :status: 1.4000000000000015
+          :<<: 1.2000000000000015
+        :score: 12.845232578665145
+        :path: app/models/domain.rb:9
+      Domain#get_next_billing_date:
+        :operators:
+          :assignment: 3.200000000000004
+          :domain: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :nil?: 1.0000000000000013
+          :next_billing_date: 1.1000000000000014
+        :score: 6.612866246946184
+        :path: app/models/domain.rb:44
+      Domain#none:
+        :operators:
+          :belongs_to: 1.0000000000000013
+          :has_many: 2.0000000000000027
+          :validates: 1.0000000000000013
+        :score: 4.000000000000005
+        :path: 
+  - :name: DelegatedDomain::delegate
+    :path: app/models/delegated_domain.rb
+    :total_score: 12.639620247459984
+    :highest_score: 12.639620247459984
+    :average_score: 12.639620247459984
+    :methods:
+      DelegatedDomain::delegate:
+        :operators:
+          :[]: 9.60000000000001
+          :check_existed_delegate: 1.0000000000000013
+          :check_invite_himself: 1.0000000000000013
+          :assignment: 1.0000000000000013
+          :create: 1.0000000000000013
+        :score: 12.639620247459984
+        :path: app/models/delegated_domain.rb:6
+  - :name: Billing::Transaction
+    :path: ''
+    :total_score: 12.10123960592469
+    :highest_score: 12.10123960592469
+    :average_score: 12.10123960592469
+    :methods:
+      Billing::Transaction#none:
+        :operators:
+          :assignment: 1.0000000000000013
+          :belongs_to: 2.0000000000000027
+          :serialize: 1.0000000000000013
+          :validates: 3.000000000000004
+          :attr_readonly: 1.0000000000000013
+          :branch: 1.2000000000000013
+          :lambda: 1.2000000000000013
+          :order: 1.5000000000000013
+          :limit: 1.3000000000000014
+          :scope: 1.0000000000000013
+        :score: 12.10123960592469
+        :path: 
+  - :name: EmailAccount
+    :path: ''
+    :total_score: 11.562439189029291
+    :highest_score: 11.562439189029291
+    :average_score: 11.562439189029291
+    :methods:
+      EmailAccount#none:
+        :operators:
+          :require: 1.0000000000000013
+          :belongs_to: 3.000000000000004
+          :has_and_belongs_to_many: 1.0000000000000013
+          :validates: 3.000000000000004
+          :branch: 1.2000000000000013
+          :lambda: 1.2000000000000013
+          :where: 1.3000000000000014
+          :scope: 1.0000000000000013
+        :score: 11.562439189029291
+        :path: 
+  - :name: DelegatedDomain::get_delegate_invite
+    :path: app/models/delegated_domain.rb
+    :total_score: 11.28893263333608
+    :highest_score: 11.28893263333608
+    :average_score: 11.28893263333608
+    :methods:
+      DelegatedDomain::get_delegate_invite:
+        :operators:
+          :assignment: 1.0000000000000013
+          :current_user: 1.6000000000000012
+          :id: 1.4000000000000012
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :nil?: 1.2000000000000013
+          :!: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 11.28893263333608
+        :path: app/models/delegated_domain.rb:39
+  - :name: ApplicationController::rescue_from
+    :path: app/controllers/application_controller.rb
+    :total_score: 10.999545445153645
+    :highest_score: 10.999545445153645
+    :average_score: 10.999545445153645
+    :methods:
+      ApplicationController::rescue_from#ApiError:
+        :operators:
+          :rescue_from: 1.0000000000000013
+          :assignment: 2.300000000000003
+          :as_json: 1.1000000000000014
+          :branch: 1.1000000000000014
+          :[]: 6.4000000000000075
+          :is_a?: 1.1000000000000014
+          :error: 1.1000000000000014
+        :score: 10.999545445153645
+        :path: app/controllers/application_controller.rb:15
+  - :name: ApiKeysController
+    :path: app/controllers/api_keys_controller.rb
+    :total_score: 31.647677302941215
+    :highest_score: 10.79305332146563
+    :average_score: 6.329535460588243
+    :methods:
+      ApiKeysController#update:
+        :operators:
+          :assignment: 1.0000000000000013
+          :params: 2.8000000000000025
+          :[]: 2.4000000000000026
+          :find: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :update: 1.0000000000000013
+          :head: 1.1000000000000014
+          :errors: 1.3000000000000014
+          :render: 1.1000000000000014
+        :score: 10.79305332146563
+        :path: app/controllers/api_keys_controller.rb:32
+      ApiKeysController#create:
+        :operators:
+          :assignment: 1.0000000000000013
+          :params: 1.4000000000000012
+          :[]: 1.2000000000000013
+          :new: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :save: 1.0000000000000013
+          :render: 2.200000000000003
+          :errors: 1.3000000000000014
+        :score: 8.222530024268695
+        :path: app/controllers/api_keys_controller.rb:20
+      ApiKeysController#destroy:
+        :operators:
+          :assignment: 1.0000000000000013
+          :params: 1.4000000000000012
+          :[]: 1.2000000000000013
+          :find: 1.0000000000000013
+          :destroy: 1.0000000000000013
+          :head: 1.0000000000000013
+        :score: 5.688585061331164
+        :path: app/controllers/api_keys_controller.rb:44
+      ApiKeysController#show:
+        :operators:
+          :assignment: 1.0000000000000013
+          :params: 1.4000000000000012
+          :[]: 1.2000000000000013
+          :find: 1.0000000000000013
+          :render: 1.0000000000000013
+        :score: 4.707440918375934
+        :path: app/controllers/api_keys_controller.rb:12
+      ApiKeysController#index:
+        :operators:
+          :assignment: 1.0000000000000013
+          :all: 1.0000000000000013
+          :render: 1.0000000000000013
+        :score: 2.2360679774997925
+        :path: app/controllers/api_keys_controller.rb:4
+  - :name: ApplicationController
+    :path: app/controllers/application_controller.rb
+    :total_score: 67.50546687433979
+    :highest_score: 10.149384217774015
+    :average_score: 5.192728221103061
+    :methods:
+      ApplicationController#none:
+        :operators:
+          :require: 1.0000000000000013
+          :include: 6.000000000000008
+          :branch: 1.0000000000000013
+          :rescue_from: 1.0000000000000013
+          :error: 1.1000000000000014
+          :private: 1.0000000000000013
+        :score: 10.149384217774015
+        :path: 
+      ApplicationController#domain_owner?:
+        :operators:
+          :branch: 1.0000000000000013
+          :current_user: 1.6000000000000012
+          :domains: 1.4000000000000012
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :present?: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 9.055385138137428
+        :path: app/controllers/application_controller.rb:72
+      ApplicationController#prepareRequest:
+        :operators:
+          :assignment: 3.200000000000004
+          :new: 1.0000000000000013
+          :branch: 3.000000000000004
+          :has_key?: 1.1000000000000014
+          :[]: 2.6000000000000028
+          :==: 1.1000000000000014
+          :parse: 1.1000000000000014
+          :each: 1.0000000000000013
+        :score: 9.036038955205992
+        :path: app/controllers/application_controller.rb:30
+      ApplicationController#send_registration_sms:
+        :operators:
+          :require: 1.0000000000000013
+          :assignment: 2.0000000000000027
+          :new: 2.3000000000000025
+          :+: 2.4000000000000026
+          :send_message: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :raise: 1.1000000000000014
+        :score: 8.114185110040328
+        :path: app/controllers/application_controller.rb:85
+      ApplicationController#current_user:
+        :operators:
+          :get_params_from_url: 1.0000000000000013
+          :assignment: 2.1000000000000028
+          :[]: 1.4000000000000012
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :user: 1.1000000000000014
+        :score: 6.156297588648561
+        :path: app/controllers/application_controller.rb:49
+      ApplicationController#send_ios_notify:
+        :operators:
+          :assignment: 4.000000000000005
+          :lit_fixnum: 0.850000000000001
+          :sleep: 1.0000000000000013
+          :send_notification: 2.0000000000000027
+        :score: 5.55180150942017
+        :path: app/controllers/application_controller.rb:102
+      ApplicationController#generate_user_hash:
+        :operators:
+          :assignment: 1.0000000000000013
+          :branch: 1.2000000000000013
+          :lit_fixnum: 0.3500000000000003
+          :new: 1.2000000000000013
+          :sample: 1.3000000000000014
+          :join: 1.0000000000000013
+        :score: 4.15481648210845
+        :path: app/controllers/application_controller.rb:80
+      ApplicationController#add_user_to_company:
+        :operators:
+          :current_user: 1.4000000000000012
+          :[]: 1.2000000000000013
+          :create: 1.0000000000000013
+        :score: 3.6000000000000036
+        :path: app/controllers/application_controller.rb:98
+      ApplicationController#send_android_notify:
+        :operators:
+          :assignment: 3.000000000000004
+          :send_notification: 1.0000000000000013
+        :score: 3.162277660168384
+        :path: app/controllers/application_controller.rb:113
+      ApplicationController#get_params_from_url:
+        :operators:
+          :assignment: 2.0000000000000027
+          :params: 1.0000000000000013
+          :prepareRequest: 1.0000000000000013
+        :score: 2.828427124746194
+        :path: app/controllers/application_controller.rb:42
+      ApplicationController#current_ability:
+        :operators:
+          :assignment: 1.0000000000000013
+          :[]: 1.2000000000000013
+          :new: 1.0000000000000013
+        :score: 2.4166091947189177
+        :path: app/controllers/application_controller.rb:123
+      ApplicationController#show_response:
+        :operators:
+          :assignment: 1.0000000000000013
+          :lit_fixnum: 0.3000000000000003
+          :render: 1.0000000000000013
+        :score: 1.6401219466856745
+        :path: app/controllers/application_controller.rb:61
+      ApplicationController#error:
+        :operators:
+          :assignment: 1.0000000000000013
+          :lit_fixnum: 0.3000000000000003
+          :render: 1.0000000000000013
+        :score: 1.6401219466856745
+        :path: app/controllers/application_controller.rb:66
+  - :name: Invite::save_invite
+    :path: app/models/invite.rb
+    :total_score: 6.181423784210245
+    :highest_score: 6.181423784210245
+    :average_score: 6.181423784210245
+    :methods:
+      Invite::save_invite:
+        :operators:
+          :branch: 1.0000000000000018
+          :new_record?: 1.2000000000000017
+          :!: 1.0000000000000018
+          :errors: 1.5000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 6.181423784210245
+        :path: app/models/invite.rb:33
+  - :name: DelegatedDomain::save_invite
+    :path: app/models/delegated_domain.rb
+    :total_score: 6.181423784210243
+    :highest_score: 6.181423784210243
+    :average_score: 6.181423784210243
+    :methods:
+      DelegatedDomain::save_invite:
+        :operators:
+          :branch: 1.0000000000000013
+          :new_record?: 1.2000000000000013
+          :!: 1.0000000000000013
+          :errors: 1.5000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 6.181423784210243
+        :path: app/models/delegated_domain.rb:23
+  - :name: Invite::check_existed_user
+    :path: app/models/invite.rb
+    :total_score: 5.775811631277469
+    :highest_score: 5.775811631277469
+    :average_score: 5.775811631277469
+    :methods:
+      Invite::check_existed_user:
+        :operators:
+          :assignment: 1.0000000000000018
+          :where: 1.2000000000000017
+          :first: 1.0000000000000018
+          :branch: 1.0000000000000018
+          :!: 1.0000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 5.775811631277469
+        :path: app/models/invite.rb:24
+  - :name: DelegatedDomain::check_existed_user
+    :path: app/models/delegated_domain.rb
+    :total_score: 5.775811631277468
+    :highest_score: 5.775811631277468
+    :average_score: 5.775811631277468
+    :methods:
+      DelegatedDomain::check_existed_user:
+        :operators:
+          :assignment: 1.0000000000000013
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :!: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 5.775811631277468
+        :path: app/models/delegated_domain.rb:14
+  - :name: Billing::Invoice::after_commit
+    :path: app/models/billing/invoice.rb
+    :total_score: 5.056678751908218
+    :highest_score: 5.056678751908218
+    :average_score: 5.056678751908218
+    :methods:
+      Billing::Invoice::after_commit#on:
+        :operators:
+          :after_commit: 1.0000000000000013
+          :branch: 2.1000000000000028
+          :zero?: 1.0000000000000013
+          :invoice_created: 1.4000000000000015
+          :deliver: 1.2000000000000015
+        :score: 5.056678751908218
+        :path: app/models/billing/invoice.rb:59
+  - :name: Domain::whois
+    :path: app/models/domain.rb
+    :total_score: 5.024937810560451
+    :highest_score: 5.024937810560451
+    :average_score: 5.024937810560451
+    :methods:
+      Domain::whois:
+        :operators:
+          :branch: 1.0000000000000013
+          :to_ascii: 1.3000000000000014
+          :whois: 1.1000000000000014
+          :assignment: 1.1000000000000014
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 5.024937810560451
+        :path: app/models/domain.rb:53
+  - :name: ApiKey
+    :path: app/models/api_key.rb
+    :total_score: 14.118946839894331
+    :highest_score: 5.024937810560451
+    :average_score: 3.529736709973583
+    :methods:
+      ApiKey#generate_access_token:
+        :operators:
+          :branch: 1.0000000000000013
+          :class: 1.3000000000000014
+          :access_token: 1.3000000000000014
+          :exists?: 1.1000000000000014
+          :assignment: 1.1000000000000014
+          :hex: 1.1000000000000014
+        :score: 5.024937810560451
+        :path: app/models/api_key.rb:12
+      ApiKey#is_expired?:
+        :operators:
+          :branch: 1.0000000000000013
+          :expires_at: 1.2000000000000013
+          :now: 1.2000000000000013
+          :<=: 1.0000000000000013
+        :score: 3.5440090293338744
+        :path: app/models/api_key.rb:18
+      ApiKey#none:
+        :operators:
+          :before_create: 1.0000000000000013
+          :belongs_to: 1.0000000000000013
+          :validates: 1.0000000000000013
+        :score: 3.000000000000004
+        :path: 
+      ApiKey#set_expiry_date:
+        :operators:
+          :lit_fixnum: 0.3500000000000003
+          :days: 1.2000000000000013
+          :from_now: 1.0000000000000013
+        :score: 2.550000000000003
+        :path: app/models/api_key.rb:8
+  - :name: Invite
+    :path: ''
+    :total_score: 5.000000000000009
+    :highest_score: 5.000000000000009
+    :average_score: 5.000000000000009
+    :methods:
+      Invite#none:
+        :operators:
+          :validates: 5.000000000000009
+        :score: 5.000000000000009
+        :path: 
+  - :name: Billing::Invoice::default_value_for
+    :path: app/models/billing/invoice.rb
+    :total_score: 6.750000000000008
+    :highest_score: 4.750000000000005
+    :average_score: 3.375000000000004
+    :methods:
+      Billing::Invoice::default_value_for#due_date:
+        :operators:
+          :default_value_for: 1.0000000000000013
+          :today: 1.2000000000000013
+          :lit_fixnum: 0.3500000000000003
+          :days: 1.2000000000000013
+          :+: 1.0000000000000013
+        :score: 4.750000000000005
+        :path: app/models/billing/invoice.rb:28
+      Billing::Invoice::default_value_for#issue_date:
+        :operators:
+          :default_value_for: 1.0000000000000013
+          :today: 1.0000000000000013
+        :score: 2.0000000000000027
+        :path: app/models/billing/invoice.rb:24
+  - :name: Invite::domain_owner?
+    :path: app/models/invite.rb
+    :total_score: 4.7074409183759345
+    :highest_score: 4.7074409183759345
+    :average_score: 4.7074409183759345
+    :methods:
+      Invite::domain_owner?:
+        :operators:
+          :branch: 1.0000000000000018
+          :where: 1.2000000000000017
+          :present?: 1.0000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 4.7074409183759345
+        :path: app/models/invite.rb:41
+  - :name: DelegatedDomain::domain_owner?
+    :path: app/models/delegated_domain.rb
+    :total_score: 4.707440918375934
+    :highest_score: 4.707440918375934
+    :average_score: 4.707440918375934
+    :methods:
+      DelegatedDomain::domain_owner?:
+        :operators:
+          :branch: 1.0000000000000013
+          :where: 1.2000000000000013
+          :present?: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 4.707440918375934
+        :path: app/models/delegated_domain.rb:31
+  - :name: Ability
+    :path: app/models/ability.rb
+    :total_score: 5.986226285598958
+    :highest_score: 3.9862262855989554
+    :average_score: 2.993113142799479
+    :methods:
+      Ability#initialize:
+        :operators:
+          :assignment: 2.0000000000000027
+          :where: 1.2000000000000013
+          :first: 1.0000000000000013
+          :branch: 1.0000000000000013
+          :can: 1.1000000000000014
+        :score: 3.9862262855989554
+        :path: app/models/ability.rb:4
+      Ability#none:
+        :operators:
+          :include: 2.0000000000000027
+        :score: 2.0000000000000027
+        :path: 
+  - :name: Invite::check_invite_himself
+    :path: app/models/invite.rb
+    :total_score: 3.5440090293338757
+    :highest_score: 3.5440090293338757
+    :average_score: 3.5440090293338757
+    :methods:
+      Invite::check_invite_himself:
+        :operators:
+          :branch: 1.0000000000000018
+          :!=: 1.0000000000000018
+          :new: 1.3000000000000018
+          :raise: 1.1000000000000019
+        :score: 3.5440090293338757
+        :path: app/models/invite.rb:29
+  - :name: DelegatedDomain::check_invite_himself
+    :path: app/models/delegated_domain.rb
+    :total_score: 3.5440090293338744
+    :highest_score: 3.5440090293338744
+    :average_score: 3.5440090293338744
+    :methods:
+      DelegatedDomain::check_invite_himself:
+        :operators:
+          :branch: 1.0000000000000013
+          :!=: 1.0000000000000013
+          :new: 1.3000000000000014
+          :raise: 1.1000000000000014
+        :score: 3.5440090293338744
+        :path: app/models/delegated_domain.rb:19
+  - :name: ApiError
+    :path: lib/api_exception.rb
+    :total_score: 3.0000000000000053
+    :highest_score: 3.0000000000000053
+    :average_score: 3.0000000000000053
+    :methods:
+      ApiError#initialize:
+        :operators:
+          :assignment: 3.0000000000000053
+        :score: 3.0000000000000053
+        :path: lib/api_exception.rb:2
+  - :name: Domain::change_owner
+    :path: app/models/domain.rb
+    :total_score: 2.200000000000003
+    :highest_score: 2.200000000000003
+    :average_score: 2.200000000000003
+    :methods:
+      Domain::change_owner:
+        :operators:
+          :id: 1.2000000000000013
+          :update_attribute: 1.0000000000000013
+        :score: 2.200000000000003
+        :path: app/models/domain.rb:61
+  - :name: EmailAccount::change_owner
+    :path: app/models/email_account.rb
+    :total_score: 2.200000000000003
+    :highest_score: 2.200000000000003
+    :average_score: 2.200000000000003
+    :methods:
+      EmailAccount::change_owner:
+        :operators:
+          :where: 1.2000000000000015
+          :update_all: 1.0000000000000016
+        :score: 2.200000000000003
+        :path: app/models/email_account.rb:69
+  - :name: namespace
+    :path: lib/tasks/zones.rake
+    :total_score: 4.200000000000008
+    :highest_score: 2.1000000000000045
+    :average_score: 2.100000000000004
+    :methods:
+      namespace#zones:
+        :operators:
+          :namespace: 1.0000000000000022
+          :desc: 1.1000000000000023
+        :score: 2.1000000000000045
+        :path: lib/tasks/zones.rake:1
+      namespace#yandex:
+        :operators:
+          :namespace: 1.000000000000002
+          :desc: 1.100000000000002
+        :score: 2.100000000000004
+        :path: lib/tasks/yandex.rake:1
+  - :name: Group
+    :path: ''
+    :total_score: 2.0000000000000036
+    :highest_score: 2.0000000000000036
+    :average_score: 2.0000000000000036
+    :methods:
+      Group#none:
+        :operators:
+          :has_and_belongs_to_many: 1.0000000000000018
+          :validates: 1.0000000000000018
+        :score: 2.0000000000000036
+        :path: 
+  - :name: Company
+    :path: ''
+    :total_score: 2.0000000000000027
+    :highest_score: 2.0000000000000027
+    :average_score: 2.0000000000000027
+    :methods:
+      Company#none:
+        :operators:
+          :belongs_to: 1.0000000000000013
+          :validates: 1.0000000000000013
+        :score: 2.0000000000000027
+        :path: 
+  - :name: Billing::Subscription::default_value_for
+    :path: app/models/billing/subscription.rb
+    :total_score: 2.0000000000000027
+    :highest_score: 2.0000000000000027
+    :average_score: 2.0000000000000027
+    :methods:
+      Billing::Subscription::default_value_for#subscription_date:
+        :operators:
+          :default_value_for: 1.0000000000000013
+          :today: 1.0000000000000013
+        :score: 2.0000000000000027
+        :path: app/models/billing/subscription.rb:14
+  - :name: DelegatedDomain
+    :path: ''
+    :total_score: 2.0000000000000027
+    :highest_score: 2.0000000000000027
+    :average_score: 2.0000000000000027
+    :methods:
+      DelegatedDomain#none:
+        :operators:
+          :validates: 2.0000000000000027
+        :score: 2.0000000000000027
+        :path: 
+  - :name: EmailAccount::get_role
+    :path: app/models/email_account.rb
+    :total_score: 1.414213562373097
+    :highest_score: 1.414213562373097
+    :average_score: 1.414213562373097
+    :methods:
+      EmailAccount::get_role:
+        :operators:
+          :branch: 1.0000000000000013
+          :==: 1.0000000000000013
+        :score: 1.414213562373097
+        :path: app/models/email_account.rb:46
+  - :name: DelegatedDomain::accept
+    :path: app/models/delegated_domain.rb
+    :total_score: 1.0000000000000013
+    :highest_score: 1.0000000000000013
+    :average_score: 1.0000000000000013
+    :methods:
+      DelegatedDomain::accept:
+        :operators:
+          :update_attribute: 1.0000000000000013
+        :score: 1.0000000000000013
+        :path: app/models/delegated_domain.rb:48
+:flay:
+  :total_score: '1370'
+  :matches:
+  - :reason: 1) Similar code found in :defn (mass = 186)
+    :matches:
+    - :name: lib/yandex.rb
+      :line: '26'
+    - :name: lib/yandex.rb
+      :line: '37'
+    - :name: lib/yandex.rb
+      :line: '48'
+    - :name: lib/yandex.rb
+      :line: '59'
+    - :name: lib/yandex.rb
+      :line: '82'
+    - :name: lib/yandex.rb
+      :line: '127'
+  - :reason: 2) Similar code found in :defn (mass = 140)
+    :matches:
+    - :name: lib/yandex.rb
+      :line: '71'
+    - :name: lib/yandex.rb
+      :line: '149'
+    - :name: lib/yandex.rb
+      :line: '171'
+    - :name: lib/yandex.rb
+      :line: '182'
+  - :reason: 3) Similar code found in :defn (mass = 132)
+    :matches:
+    - :name: lib/yandex.rb
+      :line: '104'
+    - :name: lib/yandex.rb
+      :line: '116'
+    - :name: lib/yandex.rb
+      :line: '138'
+    - :name: lib/yandex.rb
+      :line: '160'
+  - :reason: 4) IDENTICAL code found in :if (mass*2 = 92)
+    :matches:
+    - :name: app/models/group.rb
+      :line: '8'
+    - :name: app/models/group.rb
+      :line: '23'
+  - :reason: 5) Similar code found in :defn (mass = 90)
+    :matches:
+    - :name: app/controllers/api/v1/domains_controller.rb
+      :line: '144'
+    - :name: app/controllers/api/v1/invite_controller.rb
+      :line: '69'
+  - :reason: 6) IDENTICAL code found in :defs (mass*2 = 84)
+    :matches:
+    - :name: app/models/delegated_domain.rb
+      :line: '14'
+    - :name: app/models/invite.rb
+      :line: '24'
+  - :reason: 7) Similar code found in :defn (mass = 84)
+    :matches:
+    - :name: lib/google.rb
+      :line: '186'
+    - :name: lib/google.rb
+      :line: '248'
+  - :reason: 8) IDENTICAL code found in :defs (mass*2 = 80)
+    :matches:
+    - :name: app/models/delegated_domain.rb
+      :line: '23'
+    - :name: app/models/invite.rb
+      :line: '33'
+  - :reason: 9) IDENTICAL code found in :lasgn (mass*2 = 80)
+    :matches:
+    - :name: lib/google.rb
+      :line: '96'
+    - :name: lib/google.rb
+      :line: '123'
+  - :reason: 10) Similar code found in :defn (mass = 76)
+    :matches:
+    - :name: lib/google.rb
+      :line: '106'
+    - :name: lib/google.rb
+      :line: '133'
+  - :reason: 11) Similar code found in :defn (mass = 74)
+    :matches:
+    - :name: lib/yandex.rb
+      :line: '93'
+    - :name: lib/yandex.rb
+      :line: '193'
+  - :reason: 12) IDENTICAL code found in :defs (mass*2 = 72)
+    :matches:
+    - :name: app/models/delegated_domain.rb
+      :line: '31'
+    - :name: app/models/invite.rb
+      :line: '41'
+  - :reason: 13) Similar code found in :defn (mass = 56)
+    :matches:
+    - :name: app/controllers/api/v1/domains_controller.rb
+      :line: '103'
+    - :name: app/controllers/api/v1/invite_controller.rb
+      :line: '25'
+  - :reason: 14) Similar code found in :iter (mass = 48)
+    :matches:
+    - :name: app/controllers/api/v1/groups_controller.rb
+      :line: '111'
+    - :name: app/controllers/api/v1/groups_controller.rb
+      :line: '134'
+  - :reason: 15) Similar code found in :defn (mass = 42)
+    :matches:
+    - :name: app/controllers/api/v1/users_controller.rb
+      :line: '222'
+    - :name: app/controllers/api/v1/users_controller.rb
+      :line: '232'
+  - :reason: 16) Similar code found in :lasgn (mass = 34)
+    :matches:
+    - :name: lib/yandex.rb
+      :line: '209'
+    - :name: lib/yandex.rb
+      :line: '214'
