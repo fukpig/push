@@ -32,4 +32,28 @@ class Group < ActiveRecord::Base
       end
 	  return info
 	end
+	
+	def self.edit_group(domain, group, emails, action)
+		check_group(group)
+		check_emails(emails)
+		info = []
+		@params['group_emails'].each do |group_email|
+		  email = EmailAccount.where('email = ?', group_email).first
+		  if action == 'add'
+			status = add_email(group, domain, email)
+		  else 
+			status = del_email(group, domain, email)
+		  end
+		  info << status
+		end
+	    return info
+	end
+	
+	def check_emails(emails)
+	  raise ApiError.new("Add emails to group failed", "ADD_EMAILS_TO_GROUP_FAILED", "emails array empty") if !emails.nil?
+	end
+	
+	def check_group(group)
+		raise ApiError.new("Add emails to group failed", "ADD_EMAILS_TO_GROUP_FAILED", "no such domain or group") if group.nil?
+	end
 end
