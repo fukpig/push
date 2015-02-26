@@ -18,6 +18,12 @@ class Group < ActiveRecord::Base
 	  return info
 	end
 	
+	def self.get_group(domain, email)
+	   Domain.check_domain(domain)
+	   group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first
+	   raise ApiError.new("find group failed", "FIND_GROUP_FAILED", "no such domain") if group.nil?
+	end
+	
 	def self.del_email(group, domain, email)
 	  if email.nil? && email["domain_id"] != domain['id'].to_i
 	    info = { group_email => {"status"=>"errors", "message"=>"no such email"}}
@@ -33,7 +39,10 @@ class Group < ActiveRecord::Base
 	  return info
 	end
 	
-	def self.edit_group(domain, group, emails, action)
+	def self.edit_group(mail, emails, action)
+	     info = EmailAccount.split_email(@params['mail'])
+	     domain = current_user.domains.where('domain = ?', info['domain']).first
+         group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first   
 		check_group(group)
 		check_emails(emails)
 		info = []

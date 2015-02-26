@@ -72,6 +72,10 @@ class Domain < ActiveRecord::Base
 		info = { "id" => domain["id"], "domain_id" => domain["domain_id"], "domain"=> domain["domain"], "inviter_id" => domain["inviter_id"], "inviter_name" => domain["name"]}
 	end
 	
+	def self.check_domain(domain)
+	  raise ApiError.new("find domain failed", "FIND_DOMAIN_FAILED", "domain not found") if domain.nil?
+	end
+	
 	def self.register(current_user, info)
 		result = Domain.whois(info["domain"])
 	

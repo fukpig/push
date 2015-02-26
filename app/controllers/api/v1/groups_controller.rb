@@ -29,13 +29,8 @@ class Api::V1::GroupsController < ApplicationController
   def info
     info = EmailAccount.split_email(@params['mail'])
     domain = current_user.domains.where('domain = ?', info['domain']).first
-    raise ApiError.new("show group failed", "SHOW_GROUP_FAILED", "domain not found") if domain.nil?
-    group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first
-    if group 
-      show_response({'id' => group['id'], 'email' => group['email'], 'description' => group['description'], 'emails' => group.email_accounts, 'created_at' => group["created_at"].strftime("%d.%m.%Y")})
-    else
-      raise ApiError.new("show group failed", "SHOW_GROUP_FAILED", "group not found")
-     end
+	group = Group.get_group(domain, email)
+    show_response({'id' => group['id'], 'email' => group['email'], 'description' => group['description'], 'emails' => group.email_accounts, 'created_at' => group["created_at"].strftime("%d.%m.%Y")})
   end
 
   def create
@@ -55,9 +50,7 @@ class Api::V1::GroupsController < ApplicationController
     authorize! :destroy, @email
     info = EmailAccount.split_email(@params['mail'])
     domain = current_user.domains.where('domain = ?', info['domain']).first
-	group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first
-    raise ApiError.new("Delete group failed", "DEL_GROUP_FAILED", "no such domain") if group.nil?
-    
+	group = Group.get_group(domain, email)
 	group.destroy
     if group.destroyed?
       show_response({"message"=>"Group successfully delete"})
@@ -68,21 +61,13 @@ class Api::V1::GroupsController < ApplicationController
 
   def add
     authorize! :create, @group
-    info = EmailAccount.split_email(@params['mail'])
-    domain = current_user.domains.where('domain = ?', info['domain']).first
-    group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first   
-        
-	info = edit_group(domain, group, @params['group_emails'], 'add')
+	info = edit_group(@params['mail'], @params['group_emails'], 'add')
     show_response(info)
   end
 
   def remove
     authorize! :create, @group
-    info = EmailAccount.split_email(@params['mail'])
-    domain = current_user.domains.where('domain = ?', info['domain']).first
-    group = Group.where(["email = ? AND domain_id = ?", @params['mail'] ,domain['id']]).first
-	
-	info = edit_group(domain, group, @params['group_emails'], 'del')
+    info = edit_group(@params['mail'] , @params['group_emails'], 'del')
 	show_response(info)
   end
 
