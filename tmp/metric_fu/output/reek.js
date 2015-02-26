@@ -1,3 +1,0 @@
-        var graph_title = 'Reek: code smells';
-        var graph_series = [{name: 'IrresponsibleModule', data: [29]},{name: 'RepeatedConditional', data: [5]},{name: 'DuplicateMethodCall', data: [94]},{name: 'TooManyStatements', data: [46]},{name: 'UtilityFunction', data: [12]},{name: 'FeatureEnvy', data: [28]},{name: 'NilCheck', data: [26]},{name: 'UnusedParameters', data: [8]},{name: 'NestedIterators', data: [1]},{name: 'UncommunicativeVariableName', data: [7]},{name: 'UncommunicativeMethodName', data: [1]},{name: 'PrimaDonnaMethod', data: [5]},{name: 'ControlParameter', data: [6]},{name: 'LongParameterList', data: [4]},{name: 'DataClump', data: [2]}];
-        var graph_labels = {"0":"2/26"};
