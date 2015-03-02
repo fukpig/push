@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
 	validates :email, :presence => true, uniqueness: true
 	
 	def self.add_email(group, domain, email)
-		if info = check_email(email, domain['id'])
+		if info = self.check_email_exist(email, domain['id'])
 			return info
 		end
       if !email.groups.where("email_account_id = ?", email["id"]).first
@@ -25,7 +25,7 @@ class Group < ActiveRecord::Base
 	end
 	
 	def self.del_email(group, domain, email)
-	  if info = check_email(email, domain['id'])
+	  if info = self.check_email_exist(email, domain['id'])
 			return info
 		end
       in_group_email = group.email_accounts.find(email)

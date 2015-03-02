@@ -11,11 +11,6 @@ class DelegatedDomain < ActiveRecord::Base
 	  return {"message"=>"delegated domain has been added"}
 	end
 
-	def self.check_existed_user(cellphone, domain_id, email_id)
-  	invite = Invite.where(["cellphone = ? and domain_id = ? and email_id = ?", cellphone, domain_id, email_id]).first
-  	raise ApiError.new("Send invite failed", "SEND_INVITE_FAILED", "invite already sended") unless !invite
-  end
-
   def self.check_invite_himself(user_cellphone, cellphone)
   	raise ApiError.new("Send invite failed", "SEND_INVITE_FAILED", "invalid cellphone") unless cellphone != user_cellphone
   end
