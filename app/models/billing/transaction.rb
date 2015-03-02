@@ -4,7 +4,6 @@ class Billing::Transaction < ActiveRecord::Base
   ACTIONS = ['braintree_payment', 'internal_credit_replenishment', 'internal_credit_withdrawal']
 
   belongs_to :user
-  belongs_to :invoice, :class_name => "Billing::Invoice"
   serialize :params
     
   validates :amount,

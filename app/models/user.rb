@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
     :inverse_of => :user
 
 
-  has_many :billing_invoices, :class_name => 'Billing::Invoice', :dependent => :destroy, :inverse_of => :user
   has_many :billing_transactions, :class_name => 'Billing::Transaction', :dependent => :destroy, :inverse_of => :user
 
 
