@@ -4,10 +4,9 @@ class Group < ActiveRecord::Base
 	validates :email, :presence => true, uniqueness: true
 	
 	def self.add_email(group, domain, email)
-	  if email.nil? && email["domain_id"] != domain['id'].to_i
-		info = { email => {"status"=>"errors", "message"=>"no such email"}}
-		return info
-	  end
+		if info = check_email(email, domain['id'])
+			return info
+		end
       if !email.groups.where("email_account_id = ?", email["id"]).first
         group.email_accounts << email
         group.save!
@@ -26,10 +25,9 @@ class Group < ActiveRecord::Base
 	end
 	
 	def self.del_email(group, domain, email)
-	  if email.nil? && email["domain_id"] != domain['id'].to_i
-	    info = { email => {"status"=>"errors", "message"=>"no such email"}}
-		return info
-	  end
+	  if info = check_email(email, domain['id'])
+			return info
+		end
       in_group_email = group.email_accounts.find(email)
       if in_group_email
         group.email_accounts.delete(in_group_email)
@@ -59,6 +57,14 @@ class Group < ActiveRecord::Base
 	    return info
 	end
 	
+
+	def self.check_email_exist(email, domain_id)
+		if email.nil? && email["domain_id"] != domain['id'].to_i
+		  info = { email => {"status"=>"errors", "message"=>"no such email"}}
+		  return info
+		end
+	end
+
 	def self.check_emails(emails)
 	  raise ApiError.new("Add emails to group failed", "ADD_EMAILS_TO_GROUP_FAILED", "emails array empty") if emails.nil?
 	end
