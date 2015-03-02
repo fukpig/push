@@ -20,14 +20,13 @@ class Api::V1::DomainsController < ApplicationController
   def create
     authorize! :create, @domain
     info = EmailAccount.split_email(@params['domain'])
-	current_user.set_recovery_cellphone(@params['celllphone'])
-	domain = Domain.register(current_user, info)
-	if !domain.nil?
-	  show_response(domain.as_json(only: [:id, :domain, :registration_date, :expiry_date, :status, :ns_list]))
-	else 
-	  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'errors')
-	end
-	
+	  current_user.set_recovery_cellphone(@params['cellphone'])
+	  domain = Domain.register(current_user, info)
+	  if !domain.nil?
+  	  show_response(domain.as_json(only: [:id, :domain, :registration_date, :expiry_date, :status, :ns_list]))
+	  else 
+  	  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'errors')
+	  end
   end
 
   def delete

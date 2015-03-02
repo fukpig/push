@@ -20,30 +20,14 @@ class DelegatedDomain < ActiveRecord::Base
   	raise ApiError.new("Send invite failed", "SEND_INVITE_FAILED", "invalid cellphone") unless cellphone != user_cellphone
   end
 
-  def self.save_invite(invite)
-  	if !invite.new_record?
-	    return {"isset"=>"true", "message"=>"invite has been added"}
-	  else
-	  	raise ApiError.new("Create invite failed", "CREATE_INVITE_FAILED", invite.errors)
-	  end
+  def self.get_delegate_invite(user_id, invite_id)
+	invite = DelegatedDomain.where(["to = ? and id=?",current_user.id, @params["delegate_id"]]).first
+	if !invite.nil?
+	  return invite
+	else
+	  raise ApiError.new("Accept invite failed", "ACCEPT_INVITE_FAILED", "no such invite")
+	end
   end
-
-  def self.domain_owner?(domains, domain_id) 
-	  if domains.where(["id = ?", domain_id]).present?
-	    return true
-	  else
-	    raise ApiError.new("Domain not found", "FIND_DOMAIN_FAILED", "domain not found")
-	  end
-	end
-	
-	def self.get_delegate_invite(user_id, invite_id)
-	  invite = DelegatedDomain.where(["to = ? and id=?",current_user.id, @params["delegate_id"]]).first
-	  if !invite.nil?
-		return invite
-	  else
-	    raise ApiError.new("Accept invite failed", "ACCEPT_INVITE_FAILED", "no such invite")
-	  end
-	end
 	
 	def self.accept
 	 self.update_attribute( :accepted, true ) 

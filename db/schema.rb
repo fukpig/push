@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150223110252) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "api_keys", force: true do |t|
     t.integer "user_id"
     t.string  "access_token"
@@ -173,7 +176,7 @@ ActiveRecord::Schema.define(version: 20150223110252) do
     t.datetime "created_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   create_table "yandex_crons", force: true do |t|
     t.string "domain"

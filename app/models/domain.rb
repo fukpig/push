@@ -6,7 +6,7 @@ class Domain < ActiveRecord::Base
     validates :domain, presence: true, uniqueness: true
 	
 	
-	def list(user)
+	def self.list(user)
 		domains = user.domains
 		domains_info = Array.new()
 		domains.each do |domain|
@@ -20,7 +20,7 @@ class Domain < ActiveRecord::Base
       zone = PsConfigZones.get_zone(info["domain_zone"])
 	  result = Domain.whois(domain)  
       if result.available? == true
-        show_response({"domain_price" => zone.ps_price, "email_price" => EmailAccount.amount_per_day})
+       {"domain_price" => zone.ps_price, "email_price" => EmailAccount.amount_per_day}
       end
 	end
 	
@@ -100,14 +100,10 @@ class Domain < ActiveRecord::Base
 				  #cron = YandexCron.create(domain: info["domain"], email: info["email_name"])
 				
 				  #Yandex
-				  return domain
-				else
-				  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", domain.errors)
-				end
-		end
-		current_user.pay_domain(domain.id)
+				  EmailAccount.create_email(current_user, domain.id, info["email_name"], 'admin', '')
 		
-		EmailAccount.create_email(current_user, domain.id, info["email_name"], 'admin', '')
+				  current_user.pay_domain(domain.id)
+		
 		interval = 1
 		current_user.pay_email(domain.id, interval)
 		
@@ -116,6 +112,15 @@ class Domain < ActiveRecord::Base
 		#SET ADMIN TO DOMAIN
 		current_user.add_user_to_company(1, domain.id)
    	    return domain
+
+
+
+
+				  return domain
+				else
+				  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", domain.errors)
+				end
+		end
 	else 
 		raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", 'Domain is not available')
 	end
@@ -125,7 +130,7 @@ class Domain < ActiveRecord::Base
 		
     end
 	
-	def get_next_billing_date(domain)
+	def self.get_next_billing_date(domain)
 		 subscription = Billing::Subscription.where('type_of = ? and domain = ?', 'domain', domain.domain).first
 		  if subscription.nil?
 			next_billing_date = nil 

@@ -1,5 +1,4 @@
 class Api::V1::EmailaccountsController < ApplicationController
-  include EmailHelper
   require 'yandex'
 
   def info

@@ -27,9 +27,10 @@ class Api::V1::GroupsController < ApplicationController
 
 
   def info
+    authorize! :update, @email
     info = EmailAccount.split_email(@params['mail'])
     domain = current_user.domains.where('domain = ?', info['domain']).first
-	group = Group.get_group(domain, email)
+	  group = Group.get_group(domain, @params['mail'])
     show_response({'id' => group['id'], 'email' => group['email'], 'description' => group['description'], 'emails' => group.email_accounts, 'created_at' => group["created_at"].strftime("%d.%m.%Y")})
   end
 
@@ -61,14 +62,14 @@ class Api::V1::GroupsController < ApplicationController
 
   def add
     authorize! :create, @group
-	info = edit_group(@params['mail'], @params['group_emails'], 'add')
+	  info = Group.edit_group(@params['mail'], @params['group_emails'], 'add')
     show_response(info)
   end
 
   def remove
     authorize! :create, @group
-    info = edit_group(@params['mail'] , @params['group_emails'], 'del')
-	show_response(info)
+    info =  Group.edit_group(@params['mail'] , @params['group_emails'], 'del')
+	  show_response(info)
   end
 
 end

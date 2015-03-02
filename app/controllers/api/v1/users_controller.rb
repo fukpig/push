@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def list
     authorize! :show, @users
     domain_ids = current_user.domain_ids
-	email_list = EmailAccount.list
+	  email_list = EmailAccount.list(domain_ids)
     show_response(email_list)
   end
   
@@ -48,7 +48,7 @@ class Api::V1::UsersController < ApplicationController
   def update_info
     authorize! :show, @current_user
     if current_user.update_attributes(:name => @params['name']) && !@params['name'].nil?
-      EmailAccount.where('user_id = ?', current_user.id).update_all(name: @params['name'], device_token: @params['device_token'])
+      EmailAccount.where('user_id = ?', current_user.id).update_all(name: @params['name'])
       show_response({"message" =>  "User successfully updated"})
     else
       raise ApiError.new("update user info failed", "UPDATE_USER_FAILED", "user dont exist or name param is empty")  
@@ -65,6 +65,11 @@ class Api::V1::UsersController < ApplicationController
 	else 
 	  raise ApiError.new("register user failed", "REG_USER_FAILED", user.errors)
 	end
+  end
+
+  def test_cellphone
+    authorize! :delete, @info
+    current_user.set_recovery_cellphone("77789334097")
   end
 
   def get_recovery_cellphone

@@ -64,17 +64,17 @@ class User < ActiveRecord::Base
       user.update_attribute(:internal_credit, recovery_user.internal_credit)
       Domain.where('recovery_cellphone = ?', self.recovery_cellphone).update_all(user_id: user.id)
     end
-	self.update_attribute( :activated, true ) 
+	  
+    self.update_attribute( :activated, true ) 
     self.update_attributes(:aasm_state => 'active', :temp_device_token => '', :confirmation_hash => '')
-	api_key = self.find_api_key
+	  api_key = self.find_api_key
    end
    
    def set_recovery_cellphone(recovery_cellphone)
-		recovery_cellphone = self.domains.first["recovery_cellphone"] if self.domains.count > 0
-		
-	    if recovery_cellphone == self.cellphone 	
+
+	  if recovery_cellphone == self.cellphone 	
 		  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", "recovery cellphone similar user main cellphone")
-		end
+		end 
 		
 		if recovery_cellphone != self.recovery_cellphone && self.domains.count > 0
 		  raise ApiError.new("Register domain failed", "REG_DOMAIN_FAILED", "recovery_cellphone doesnt match first recovery cellphone'") 
